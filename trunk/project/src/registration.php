@@ -1,7 +1,3 @@
-<?php
-	include "php/connection.php";
-	$connect = new Connection();
-?>
 <!doctype html>
 <html lang="hu">
 <head>
@@ -25,7 +21,7 @@
         <header class="title-head">  
             <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
 			
-			<form action="bejelentkezes.php" method="POST" name="bejelentkezes" id="bejelentkezes" class="headerbar-form pull-right">
+			<form action="" method="POST" name="bejelentkezes" id="bejelentkezes" class="headerbar-form pull-right">
 				<input class="mezo" type="text" placeholder="email" />
 				<input class="mezo" type="password" placeholder="jelszó" />
 				<input type="submit" class="btn" value="Bejelentkezés" />
@@ -51,7 +47,7 @@
         <div id="core" class="home pull-left">
 			<h2>Regisztráció*</h2>
 	
-			<form action="valami.php" method="POST" name="regisztracio" id="regisztracio" enctype="multipart/form-data">
+			<form action="registration.php" method="POST" name="regisztracio" id="regisztracio" enctype="multipart/form-data">
 					<label for="nev" class="pull-left">Név:</label>
 						<input type="text" id="nev" name="nev" class="pull-right" placeholder="név" required="required" /><br class="clearfix"/>
 						
@@ -111,3 +107,14 @@
     </script>
 </body>
 </html>
+<?php 
+
+if (isset($_POST['submit-button'])) {
+	require_once 'php/bean/felhasznalo.php';
+	$felhasznalo = new Felhasznalo($_POST['email'], $_POST['jelszo'], $_POST['nev'], $_POST['ev'], $_POST['honap'],
+			$_POST['nap'], $_POST['nem'], $_POST['telefon']);
+	
+	$felhasznalo->regisztracio();
+}
+
+?>
