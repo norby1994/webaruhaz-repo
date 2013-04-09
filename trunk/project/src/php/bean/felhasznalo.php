@@ -11,8 +11,29 @@
 		private $_regDatum;
 		private $_torzsvasarlo;
 		
+		public function __construct($email, $jelszo, $felhasznaloNev, $ev, $honap, $nap, $nem, $telefon)
+		{
+			$this->_email = $email;
+			$this->_jelszo = $jelszo;
+			$this->_felhasznaloNev = $felhasznaloNev;
+			$this->_szulIdo = $ev . '. ' . $honap . ' ' . $nap . '.';
+			$this->_nem = $nem;
+			$this->_telefon = $telefon;
+		}
+		
+		public function regisztracio()
+		{			
+			require_once '../connection.php';
+			$connect = new Connection();
+			
+			$stid = oci_parse($connect, "INSERT INTO felhasznalo(email, jelszo, felhasznalo_nev, szul_ido, nem, telefon) 
+					VALUES ('$this->_email', '$this->_jelszo', '$this->_felhasznaloNev', '$this->_szulIdo', 
+					'this->_nem', '$this->_telefon')");
+			oci_execute($stid);
+		}
+		
 		/**
-		 * Getterek és Setterek
+		 * Getterek Ã‰s Setterek
 		 */
 		
 		public function getEmail()
