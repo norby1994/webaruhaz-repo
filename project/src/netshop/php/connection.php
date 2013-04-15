@@ -1,5 +1,4 @@
 <?php
-	session_start();
 
 	$FELHASZNALONEV = 'h070183';
 	$JELSZO = 'qwerty';
