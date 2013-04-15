@@ -52,7 +52,7 @@
         <div id="core" class="home pull-left">
 			<h2 class="pull-center">Regisztráció*</h2>
 	
-			<form action="valami.php" method="post" name="regisztracio" id="regisztracio" class="regisztracio" enctype="multipart/form-data">
+			<form action="" method="post" name="regisztracio" id="regisztracio" class="regisztracio" enctype="multipart/form-data">
 					<label for="nev" class="pull-left">Név:</label>
 						<input type="text" id="nev" name="nev" class="pull-right" placeholder="név" required="required" /><br class="clearfix"/>
 						
@@ -99,7 +99,14 @@
                 </p>
             </footer>
         </div>
-
+		
+		<?php  
+			require_once "php/felhasznalo.php";
+			if (isset($_POST['submit-button'])) {
+				regisztracio();
+			}
+		?>
+		
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 
