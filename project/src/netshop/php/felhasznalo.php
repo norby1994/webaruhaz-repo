@@ -19,7 +19,7 @@ function regisztracio() {
 		$hazszam = $_POST['hazszam'];
 		
 		// Van-e már ilyen email cím?
-		$vQ = ($connect, "SELECT email FROM felhasznalo WHERE email = '$email");
+		$vQ = oci_parse($connect, "SELECT email FROM felhasznalo WHERE email = '$email");
 		// $vR = oci_execute($vQ);
 		if (oci_fetch_array($vQ, OCI_ASSOC+OCI_RETURN_NULLS)) {
 			echo "lószar a picsádba";
@@ -39,7 +39,7 @@ function regisztracio() {
 
 		oci_execute($compiled);	
 		*/
-		$bQ = ($connect, "INSERT INTO felhasznalo(email, jelszo, felhasznalo_nev, szuld_ido, nem, telefon, reg_datum) VALUES ($email, $jelszo, $nev, to_date($szul_ido, yyyy/mm/dd), $nem, $telefon, CURRENT_TIMESTAMP)");
+		$bQ = oci_parse($connect, "INSERT INTO felhasznalo(email, jelszo, felhasznalo_nev, szuld_ido, nem, telefon, reg_datum) VALUES ($email, $jelszo, $nev, to_date($szul_ido, yyyy/mm/dd), $nem, $telefon, CURRENT_TIMESTAMP)");
 		if (oci_execute($bQ)) {
 			echo 'Sikeres feltöltés';
 		}
