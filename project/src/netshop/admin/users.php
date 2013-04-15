@@ -133,8 +133,4 @@
                 ?>
             </div>
 
-            <div id="side2" class="sidebars pull-right">
-                <h3>Legutóbbi vásárlások</h3>
-            </div>
-
             <?php include "../footer.php"; ?>
