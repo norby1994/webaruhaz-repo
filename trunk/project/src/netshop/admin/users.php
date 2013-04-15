@@ -98,7 +98,7 @@
                 </nav>
             </div>
 
-            <div id="core" class="profile pull-left">
+            <div id="core" class="users pull-left">
                 <h2 class="pull-center">Regisztrált Felhasználók</h2>
 
             <?php 
