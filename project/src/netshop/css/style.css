@@ -1,9 +1,9 @@
 /*
-** Fõ stíluslap
+** Fï¿½ stï¿½luslap
 */
 
 body {
-	font-size: 13px;
+	font-size: 14px;
 	background: url(../img/bg.png);
 }
 
@@ -36,7 +36,7 @@ a { text-decoration: none; }
 }
 
 /*
-** Fejrész Design
+** Fejrï¿½sz Design
 */
 
 .title-head {
@@ -71,7 +71,7 @@ h1.cim {
 }
 
 /*
-** Oldalsáv Design
+** Oldalsï¿½v Design
 */
 
 .sidebars {
@@ -113,7 +113,7 @@ h1.cim {
 
 
 /*
-** Main konténer
+** Main kontï¿½ner
 */
 
 #core h2 {
@@ -132,7 +132,7 @@ h1.cim {
 }
 
 /*
-** Katalógus Design
+** Katalï¿½gus Design
 */
 
 #core section.products {
@@ -197,7 +197,7 @@ h1.cim {
 }
 
 /*
-** Kezdõlap Design
+** Kezdï¿½lap Design
 */
 .home {
 	width: 544px;
@@ -248,7 +248,7 @@ h1.cim {
 }
 
 /*
-** Lábrész Design
+** Lï¿½brï¿½sz Design
 */ 
 
 footer {
@@ -281,14 +281,14 @@ footer a:active {
 
 
 /*
-** Regisztráció
+** Regisztrï¿½ciï¿½
 */
 #regisztracio {
 	width: 300px;
 	margin: auto;
 }
 
-/* Placeholder stílus normalizálása */  
+/* Placeholder stï¿½lus normalizï¿½lï¿½sa */  
 /* chrome, safari */  
 ::-webkit-input-placeholder {  
     color:#CCC;  
@@ -305,7 +305,7 @@ input.placeholder-text, textarea.placeholder-text  {
     font-style:italic;  
 }
 
-/* Box shadow kilövése a required mezõk körül */
+/* Box shadow kilï¿½vï¿½se a required mezï¿½k kï¿½rï¿½l */
 input:required, textarea:required {  
     -moz-box-shadow:none;  
     -webkit-box-shadow:none;  
@@ -346,7 +346,7 @@ input:required, textarea:required {
 #regisztracio #hazszam { width: 30px; }
 
 /*
-** Fõoldal
+** Fï¿½oldal
 */
 
 #core .top5-title {
@@ -390,7 +390,7 @@ input:required, textarea:required {
 }
 
 /*
-** Termék profil
+** Termï¿½k profil
 */
 
 .product {
@@ -438,7 +438,7 @@ input:required, textarea:required {
 
 
 /*
-** Felhasználó profil
+** Felhasznï¿½lï¿½ profil
 */
 
 .acc-info {
@@ -474,4 +474,12 @@ input:required, textarea:required {
 .modosit {
 	text-align: center;
 	margin-top: 10px;
-}	
+}
+
+.users {
+	min-width: 720px;
+}
+
+.users table {
+ 	width: 720px;   
+ }
