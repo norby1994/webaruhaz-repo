@@ -1,4 +1,4 @@
-<?php include "../php/connection.php"; ?>
+<?php require_once "../php/session.php"; ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -103,7 +103,7 @@
             <?php 
             
 				// Felhasználók lekérdezése
-				$stid = oci_parse($connect, 'SELECT * FROM departments');
+				$stid = oci_parse($connect, 'SELECT * FROM felhasznalo');
 				if (!$stid) {
 					$e = oci_error($connect);
 					trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
