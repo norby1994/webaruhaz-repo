@@ -2,7 +2,7 @@
 <html lang="hu">
     <head>
         <meta charset="utf-8">
-        <title>NetShop</title>
+        <title>NetShop - Felhasználó bejelentkezés</title>
         <meta name="description" content="Internetes áruház" />
         <meta name="author" content="Kasziba Szintia, Verebélyi Bertalan, Verebélyi Csaba" />
         <link rel="shortcut icon" href="img/favicon.png" />
@@ -19,8 +19,8 @@
     <body>
         <div id="wrapper">
            	<div id="login-wrap">
-           		<from action="$PHP_SELF" method="post" id="">
-           			<input type="text" name="felhasznalo_nev" placeholder="Felhasználó név" /> <br />
+           		<from action="$PHP_SELF" method="post" id="login">
+           			<input type="email" name="email" placeholder="Email cím" /> <br />
            			<input type="password" name="jelszo" placeholder="Jelszó" /> <br />
            			<input type="submit" name="login-submit" value="Bejelentkezés" />
            		</from>
