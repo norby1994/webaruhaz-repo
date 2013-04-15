@@ -476,6 +476,10 @@ input:required, textarea:required {
 	margin-top: 10px;
 }
 
+/*
+ * Felhasználók listázása
+ */
+
 .users {
 	min-width: 720px;
 }
@@ -485,7 +489,7 @@ input:required, textarea:required {
  	text-align: left;
 }
  
- .users table th {
+.users table th {
  	font-weight: bold;
  	text-align: left;
 }
@@ -493,4 +497,28 @@ input:required, textarea:required {
 .users table td {
  	border: 1px solid #333;
  	padding: 2px;
+}
+
+/*
+ * Bejelentkezés
+ */
+
+#login-wrap {
+    width: 300px;
+    margin: auto;
+    min-height: 110px;
+    background-color: #ccc;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #aaa;
+}
+
+#login-wrap input[type=email],
+ #login-wrap input[type=password]{
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
 }
