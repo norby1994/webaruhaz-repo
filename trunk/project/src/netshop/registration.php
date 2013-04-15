@@ -84,31 +84,16 @@
 				<p id="hint">*Az űrlapon lévő összes mező kitöltése kötelező</p>	
 				<input type="submit" name="submit-button" value="Elküld" id="submit-button" /><br class="clearfix"/>  
 			</form>
-        </div>
-
-            <div id="side2" class="sidebars pull-right">
-                <h3>Kosár</h3>
-            </div>
-
-            <footer class="clearfix">
-                <div id="foot-nav">
-                    <a rel="external" href="#">Főoldal</a> | <a rel="external" href="#">Rólunk</a> | <a rel="external" href="#">Kapcsolat</a>
-                </div>
-                <p>
-                    Copyrigt © 2013
-                </p>
-            </footer>
-        </div>
-		
 		<?php  
 			require_once "php/felhasznalo.php";
 			if (isset($_POST['submit-button'])) {
 				regisztracio();
 			}
 		?>
-		
-        <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        </div>
 
-    </body>
-</html>
+            <div id="side2" class="sidebars pull-right">
+                <h3>Kosár</h3>
+            </div>
+
+            <?php include "footer.php"; ?>
