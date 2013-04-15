@@ -2,12 +2,12 @@
 <html lang="hu">
     <head>
         <meta charset="utf-8">
-        <title>NetShop - Admin</title>
+        <title>NetShop - Admin adatok módosítása</title>
         <meta name="description" content="Internetes áruház" />
         <meta name="author" content="Kasziba Szintia, Verebélyi Bertalan, Verebélyi Csaba" />
-        <link rel="shortcut icon" href="img/favicon.png" />
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="shortcut icon" href="../img/favicon.png" />
+        <link rel="stylesheet" href="../css/reset.css" />
+        <link rel="stylesheet" href="../css/style.css" />
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,6 +29,7 @@
                 <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
 
                 <div id="kijelentkezes">
+                	<a href="delete.php">Felhasználó törlése</a>
                     <a href="logout.php">Kijelentkezés</a>
                 </div>
 
