@@ -85,7 +85,7 @@
 				<p id="hint">*Az űrlapon lévő összes mező kitöltése kötelező</p>	
 				<input type="submit" name="submit-button" value="Elküld" id="submit-button" /><br class="clearfix"/>  
 			</form>
-		<?php  
+		<?php
 			require_once "php/felhasznalo.php";
 			if (isset($_POST['submit-button'])) {
 				regisztracio();
