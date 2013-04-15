@@ -2,7 +2,7 @@
 <html lang="hu">
     <head>
         <meta charset="utf-8">
-        <title>NetShop - Admin adatok módosítása</title>
+        <title>NetShop - Admin profil</title>
         <meta name="description" content="Internetes áruház" />
         <meta name="author" content="Kasziba Szintia, Verebélyi Bertalan, Verebélyi Csaba" />
         <link rel="shortcut icon" href="../img/favicon.png" />
