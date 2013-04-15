@@ -1,9 +1,9 @@
 <?php
 
-include "connection.php";
-
 function regisztracio() {
 	if (isset($_POST['submit-button'])) {
+		require_once "connection.php";
+		
 		// Felhasznalo tábla
 		$nev = $_POST['nev'];
 		$nem = $_POST['nem'];
