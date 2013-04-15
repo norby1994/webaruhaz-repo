@@ -1,4 +1,5 @@
 <?php require_once "../php/session.php"; ?>
+<?php require_once "../php/connection.php"; ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -19,10 +20,10 @@
 
     <body>
         <?php
-		if (!isset($_SESSION['admin'])) {
+		/*if (!isset($_SESSION['admin'])) {
 			header("location:login.php");
 			exit ;
-		}
+		} */
         ?>
 
         <div id="wrapper">
@@ -128,7 +129,7 @@
 				print "</table>\n";
 
 				oci_free_statement($stid);
-				oci_close($conn);
+				oci_close($connect);
                 ?>
             </div>
 
