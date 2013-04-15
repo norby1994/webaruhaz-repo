@@ -46,7 +46,6 @@
             <br class="clearfix" />
 
             <div id="side" class="sidebars pull-left">
-                <h3>Menü</h3>
                 
             </div>
 
@@ -94,7 +93,7 @@
         </div>
 
             <div id="side2" class="sidebars pull-right">
-                <h3>Kosár</h3>
+            	
             </div>
 
             <?php include "footer.php"; ?>
