@@ -481,5 +481,16 @@ input:required, textarea:required {
 }
 
 .users table {
- 	width: 720px;   
- }
+ 	width: 720px;
+ 	text-align: left;
+}
+ 
+ .users table th {
+ 	font-weight: bold;
+ 	text-align: left;
+}
+
+.users table td {
+ 	border: 1px solid #333;
+ 	padding: 2px;
+}

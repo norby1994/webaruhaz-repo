@@ -25,78 +25,9 @@
 			exit ;
 		} */
         ?>
-
-        <div id="wrapper">
-            <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
-
-                <div id="kijelentkezes">
-                    <a href="logout.php">Kijelentkezés</a>
-                </div>
-
-                <br class="clearfix" />
-
-                <nav>
-                    <ul>
-                        <li>
-                            <a rel="external" href="#">Termék feltöltése</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Termék módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória felvétele</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Katalógus megtekintése</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <br class="clearfix" />
-
-            <div id="side" class="sidebars pull-left">
-                <h3>Menü</h3>
-                <nav>
-                    <ul>
-                        <li class="menu-head">
-                            Profil Beállítások
-                        </li>
-                        <li>
-                            <ul class="inner">
-                                <li>
-                                    <a href="#">Kijelentkezés</a>
-                                </li>
-                                <li>
-                                    <a href="#">Adatok módosítása</a>
-                                </li>
-                                <li>
-                                    <a href="#">Regisztráció törlése</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-head">
-                            Admin funkciók
-                        </li>
-                        <li>
-                            <ul class="inner">
-                                <li>
-                                    <a href="#">Éves statisztika</a>
-                                </li>
-                                <li>
-                                    <a href="#">Vásárlások listázása</a>
-                                </li>
-                                <li>
-                                    <a href="#">Felhasználók kezelése</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+		<div id="wrapper">
+			
+        	<?php require_once "admin-menu.php" ?>
 
             <div id="core" class="users pull-left">
                 <h2 class="pull-center">Regisztrált Felhasználók</h2>
@@ -104,7 +35,9 @@
             <?php 
             
 				// Felhasználók lekérdezése
-				$stid = oci_parse($connect, 'SELECT * FROM felhasznalo');
+				$stid = oci_parse($connect,
+				'SELECT email, felhasznalo_nev, telefon, egyenleg, torzsvasarlo, reg_datum 
+				 FROM felhasznalo');
 				if (!$stid) {
 					$e = oci_error($connect);
 					trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -118,7 +51,16 @@
 				}
 
 				// Fetch the results of the query
-				print "<table border='1'>\n";
+				print "<table>\n";
+				print "<tr>\n";
+				print "<th>Email cím</th>\n";
+				print "<th>Név</th>\n";
+				print "<th>Telefonszám</th>\n";
+				print "<th>Egyenleg</th>\n";
+				print "<th>Törzsvásárló?</th>\n";
+				print "<th>Regisztráció dátuma</th>\n";
+				print "</tr>\n";
+				
 				while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 					print "<tr>\n";
 					foreach ($row as $item) {
