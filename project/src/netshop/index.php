@@ -19,155 +19,171 @@
     <body>
         <div id="wrapper">
             <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
+                <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
 
-                <div id="bejelentkezes">
-                    <a href="login.php">Bejelentkezés felhasználóként</a>
-                    <a href="/admin/login.php">Bejelentkezés adminként</a>
+                <div id="bejelentkezes" class="headerbar-form pull-right">
+                	<ul>
+                		<li><a href="login.php">Bejelentkezés felhasználóként</a></li>
+	                    <li><a href="admin/login.php">Bejelentkezés adminként</a></li>
+	                    <li><a href="registration.php">Regisztráció</a></li>
+                	</ul>
                 </div>
-                
-                <div id="kijelentkezes">
-                    <a href="logout.php">Kijelentkezés</a>
-                </div>
-
 
                 <br class="clearfix" />
 
                 <nav>
                     <ul>
                         <li>
-                            <a rel="external" href="#">Termék feltöltése</a>
+                            <a rel="external" href="#">Kategória</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Termék módosítása</a>
+                            <a rel="external" href="#">Kategória</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Kategória felvétele</a>
+                            <a rel="external" href="#">Kategória</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Kategória módosítása</a>
+                            <a rel="external" href="#">Kategória</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Katalógus megtekintése</a>
+                            <a rel="external" href="#">Kategória</a>
                         </li>
                     </ul>
                 </nav>
             </header>
             <br class="clearfix" />
 
-            <div id="side" class="sidebars pull-left">
-                <h3>Menü</h3>
-                <nav>
-                    <ul>
-                        <li class="menu-head">
-                            Profil Beállítások
-                        </li>
-                        <li>
-                            <ul class="inner">
-                                <li>
-                                    <a href="#">Kijelentkezés</a>
-                                </li>
-                                <li>
-                                    <a href="#">Adatok módosítása</a>
-                                </li>
-                                <li>
-                                    <a href="#">Regisztráció törlése</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-head">
-                            Admin funkciók
-                        </li>
-                        <li>
-                            <ul class="inner">
-                                <li>
-                                    <a href="#">Éves statisztika</a>
-                                </li>
-                                <li>
-                                    <a href="#">Vásárlások listázása</a>
-                                </li>
-                                <li>
-                                    <a href="#">Felhasználók kezelése</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            		<div id="core" class="landing pull-left">
+			<h2>Üdvözlünk a NetShop oldalán!</h2>
+			<h3 class="pull-center top5-title">Legújabb Termékeink</h3>
+			
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+			
+			<br class="clearfix" />
+			<br class="clearfix" />
+			
+			<h3 class="pull-center top5-title">Legnépszerűbb Termékeink</h3>
+			
+			<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
+				
+				<div class="top5">
+					<div class="top5-img">
+						<a href=""><img src="img/p02.jpg" alt="" /></a>
+					</div>
+					<div class="top5-name">
+						<a href="">Terméknév</a>
+					</div>
+					<div class="top5-price">
+						5.000 HUF
+					</div>
+				</div>
 
-            <div id="core" class="profile pull-left">
-                <h2 class="pull-center">Profil módosítások</h2>
-
-                <div class="acc-row">
-                    <span class="acc-info"><label for="nev">Felhasznaló név:</label></span><span class="acc-datam">
-                        <input type="text" placeholder="Kun Béla" name="nev" />
-                    </span>
-                </div>
-                <br class="clearfix" />
-
-                <div class="acc-row">
-                    <span class="acc-info"><label for="email">Email:</label></span><span class="acc-datam">
-                        <input type="text" placeholder="kun.bela@gmail.com" name="email" />
-                    </span>
-                </div>
-                <br class="clearfix" />
-
-                <div class="acc-row">
-                    <span class="acc-info">Születési dátum:</span>
-                    <br />
-
-                    <div class="acc-datam">
-                        <label for="ev">Év:</label>
-                        <input type="text" name="ev" placeholder="1990" />
-                        <br class="clearfix"/>
-                        <label for="honap">Hónap:</label>
-                        <input type="text" name="honap" placeholder="AUG" />
-                        <br class="clearfix"/>
-                        <label for="nap">Nap:</label>
-                        <input type="text" name="nap" class="pull-right" placeholder="08" />
-                        <br class="clearfix"/>
-                    </div>
-                </div>
-                <br class="clearfix" />
-
-                <div class="acc-row">
-                    <span class="acc-info">Lakcím:</span>
-                    <br />
-
-                    <div class="acc-datam">
-                        <label for="ir_szam" class="pull-left">Irányítószám:</label>
-                        <input type="text" name="ir_szam" placeholder="6623" />
-                        <br class="clearfix"/>
-                        <label for="varos" class="pull-left">Város:</label>
-                        <input type="text" name="varos" placeholder="Szeged"/>
-                        <br class="clearfix"/>
-                        <label for="utca" class="pull-left">Utca:</label>
-                        <input type="text" name="utca" placeholder="Szivárvány utca" required="required" />
-                        <br class="clearfix"/>
-                        <label for="hazszam" class="pull-left">Házszám:</label>
-                        <input type="text" name="hazszam" placeholder="52" />
-                        <br class="clearfix"/>
-                    </div>
-                </div>
-                <br class="clearfix" />
-
-                <div class="acc-row">
-                    <span class="acc-info"><label for="telefon">Telefon:</label></span><span class="acc-datam">
-                        <input type="text" name="telefon" placeholder="06706664545" />
-                    </span>
-                </div>
-                <br class="clearfix" />
-
-                <form action="" method="POST" class="modosit">
-                    <input type="submit" value="Módosít" class="pull-center" name="modosit" />
-                </form>
-
-            </div>
-
-            <div id="side2" class="sidebars pull-right">
-                <h3>Legutóbbi vásárlások</h3>
-            </div>
-
+        </div>
+        
             <footer class="clearfix">
                 <div id="foot-nav">
                     <a rel="external" href="#">Főoldal</a> | <a rel="external" href="#">Rólunk</a> | <a rel="external" href="#">Kapcsolat</a>

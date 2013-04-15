@@ -5,9 +5,9 @@
         <title>NetShop - Felhasználó regisztráció</title>
         <meta name="description" content="Internetes áruház" />
         <meta name="author" content="Kasziba Szintia, Verebélyi Bertalan, Verebélyi Csaba" />
-        <link rel="shortcut icon" href="../img/favicon.png" />
-        <link rel="stylesheet" href="../css/reset.css" />
-        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="shortcut icon" href="img/favicon.png" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/style.css" />
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,7 +22,7 @@
             <header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
 
-                <div id="kijelentkezes">
+                <div id="kijelentkezes" class="pull-right">
                     <a href="logout.php">Kijelentkezés</a>
                 </div>
 
@@ -31,19 +31,13 @@
                 <nav>
                     <ul>
                         <li>
-                            <a rel="external" href="#">Termék feltöltése</a>
+                            <a rel="external" href="#">kategória1</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Termék módosítása</a>
+                            <a rel="external" href="#">kategória2</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Kategória felvétele</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Katalógus megtekintése</a>
+                            <a rel="external" href="#">kategória3</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,42 +46,7 @@
 
             <div id="side" class="sidebars pull-left">
                 <h3>Menü</h3>
-                <nav>
-                    <ul>
-                        <li class="menu-head">
-                            Profil Beállítások
-                        </li>
-                        <li>
-                            <ul class="inner">
-                                <li>
-                                    <a href="#">Kijelentkezés</a>
-                                </li>
-                                <li>
-                                    <a href="#">Adatok módosítása</a>
-                                </li>
-                                <li>
-                                    <a href="#">Regisztráció törlése</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-head">
-                            Admin funkciók
-                        </li>
-                        <li>
-                            <ul class="inner">
-                                <li>
-                                    <a href="#">Éves statisztika</a>
-                                </li>
-                                <li>
-                                    <a href="#">Vásárlások listázása</a>
-                                </li>
-                                <li>
-                                    <a href="#">Felhasználók kezelése</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+                
             </div>
 
         <div id="core" class="home pull-left">
@@ -128,7 +87,7 @@
         </div>
 
             <div id="side2" class="sidebars pull-right">
-                <h3>Legutóbbi vásárlások</h3>
+                <h3>Kosár</h3>
             </div>
 
             <footer class="clearfix">
