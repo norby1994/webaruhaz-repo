@@ -29,7 +29,7 @@ function regisztracio() {
 
 		// Felhasználó beszúrása
 		$fsql = 'INSERT INTO felhasznalo(email, jelszo, felhasznalo_nev, szul_ido, nem, telefon, reg_datum)' 
-			. ' VALUES (:email, :jelszo, :nev, to_date(:szul_ido, yyyy/mm/dd), :nem, :telefon, CURRENT_TIMESTAMP)';
+			. ' VALUES (:email, :jelszo, :nev, to_date(:szul_ido, \'yyyy/mm/dd\'), :nem, :telefon, CURRENT_TIMESTAMP)';
 		$bQ = oci_parse($connect, $fsql);
 		
 		// Debug???
