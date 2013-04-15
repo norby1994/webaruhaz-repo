@@ -1,6 +1,6 @@
 <?php
 
-require_once "connection.php";
+include "connection.php";
 
 function regisztracio() {
 	if (isset($_POST['submit-button'])) {
@@ -19,7 +19,7 @@ function regisztracio() {
 		$hazszam = $_POST['hazszam'];
 		
 		// Van-e már ilyen email cím?
-		$vQ = ($connect, "SELECT email FROM felhasznalo WHERE email = $email");
+		$vQ = ($connect, "SELECT email FROM felhasznalo WHERE email = '$email");
 		// $vR = oci_execute($vQ);
 		if (oci_fetch_array($vQ, OCI_ASSOC+OCI_RETURN_NULLS)) {
 			echo "lószar a picsádba";
