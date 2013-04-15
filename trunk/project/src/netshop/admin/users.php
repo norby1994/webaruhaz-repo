@@ -20,10 +20,10 @@
 
     <body>
         <?php
-		/*if (!isset($_SESSION['admin'])) {
+		if (!isset($_SESSION['admin'])) {
 			header("location:login.php");
 			exit ;
-		} */
+		}
         ?>
 		<div id="wrapper">
 			
