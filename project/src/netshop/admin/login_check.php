@@ -20,7 +20,7 @@ if(!$_POST["email"] || !$_POST["jelszo"])
 		$email=$_POST["email"];
 		$jelszo=$_POST["jelszo"];
 		$tbl_name="felhasznalo";
-		$sql=oci_parse($connect,"select * from felhasznalo where email = '".addslashes($_POST["email"])."' and jelszo = '".addslashes($_POST["jelszo"])."'");
+		$sql=oci_parse($connect,"select * from admin where email = '".addslashes($_POST["email"])."' and jelszo = '".addslashes($_POST["jelszo"])."'");
 		
 		oci_execute($sql);
 		while ($row = oci_fetch_array($sql, OCI_BOTH )) {
@@ -28,15 +28,14 @@ if(!$_POST["email"] || !$_POST["jelszo"])
 			$_SESSION["nev"] = $row[2];
 			$_SESSION["szul_ido"] = $row[3];
 			$_SESSION["telefon"] = $row[5];
-			$_SESSION["egyenleg"] = $row[6];
-			$_SESSION["reg_datum"] = $row[7];
-			$_SESSION["torzsvasarlo"] = $row[8];
+			$_SESSION["reg_datum"] = $row[6];
+			
 			
 			
 		}
 		
 		if($_SESSION["email"]) {
-		$tipus = "felhasznalo";
+		$tipus = "admin";
 		$_SESSION["tipus"] = $tipus;
 		header("Location:../profile.php");
 	}}

@@ -35,10 +35,10 @@
                 <nav>
                     <ul>
                         <li>
-                            <a rel="external" href="#">Kategória</a>
+                            <a rel="external" href="#">Póló</a>
                         </li>
                         <li>
-                            <a rel="external" href="#">Kategória</a>
+                            <a rel="external" href="#">Pulóver</a>
                         </li>
                         <li>
                             <a rel="external" href="#">Kategória</a>
