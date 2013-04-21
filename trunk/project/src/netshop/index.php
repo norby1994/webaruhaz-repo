@@ -1,4 +1,3 @@
-<?php require_once "php/session.php"; ?>
 <!doctype html>
 <html lang="hu">
     <head>

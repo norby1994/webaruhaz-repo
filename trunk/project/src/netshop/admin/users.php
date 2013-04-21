@@ -1,4 +1,3 @@
-<?php require_once "../php/session.php"; ?>
 <?php require_once "../php/connection.php"; ?>
 <!doctype html>
 <html lang="hu">
@@ -19,12 +18,15 @@
     </head>
 
     <body>
-        <?php
-		if (!isset($_SESSION['admin'])) {
-			header("location:login.php");
-			exit ;
-		}
-        ?>
+	    <?php
+		/**
+		 * session ellenőrzés elvégzése, hogy illetéktelen 
+		 * nem admin felhasználók ne nézhessék meg ennek az oldalnak a tartalmát	
+		 */ 
+		require_once "../php/admin.php";
+		session_check();
+						    		 
+	    ?>
 		<div id="wrapper">
 			
         	<?php require_once "admin-menu.php" ?>
@@ -43,14 +45,14 @@
 					trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 				}
 
-				// Perform the logic of the query
+				// lekérdezés logikájának ellenőrzése
 				$r = oci_execute($stid);
 				if (!$r) {
 					$e = oci_error($stid);
 					trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 				}
 
-				// Fetch the results of the query
+				// lekérdezés kilistázása
 				print "<table>\n";
 				print "<tr>\n";
 				print "<th>Email cím</th>\n";

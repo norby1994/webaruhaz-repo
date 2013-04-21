@@ -1,4 +1,3 @@
-<?php  ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -24,13 +23,20 @@
 	?>
         <div id="wrapper">
            	<div id="login-wrap">
-           		<form action="php/login_check.php" method="post" >
+           		<form action="login.php" method="post" >
            			<input type="email" name="email" id="email" placeholder="Email cím" /> <br />
            			<input type="password" name="jelszo" id="jelszo" placeholder="Jelszó" /> <br />
            			<input type="submit" name="login-submit" value="Bejelentkezés" />
            		</form>
            	</div>
         </div>
+        
+        <?php
+			require_once "php/felhasznalo.php";
+			if (isset($_POST['login-submit'])) {
+				login_check();
+			}
+		?>
 
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>

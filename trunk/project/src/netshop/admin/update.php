@@ -1,4 +1,3 @@
-<?php require_once "../php/session.php"; ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -19,12 +18,11 @@
 
     <body>
 
-    <?php
-	    if(!isset($_SESSION['admin'])){
-	    	header("location:login.php");
-	    	exit;
-	    }
-    ?>
+		<?php
+			require_once "../php/admin.php";
+			session_check();
+		?>
+
         <div id="wrapper">
             
             <?php require_once "admin-menu.php" ?>

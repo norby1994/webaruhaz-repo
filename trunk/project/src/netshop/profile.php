@@ -23,77 +23,57 @@
     session_start();
     if(!$_SESSION['email']){
 	    	header("location:login.php");
-	    	
 	    }
-	    
+	
+	// Ha admin típusú a bejelentkezett felhasználó,
+	// akkor megjelenítjük a hozzá tartozó profilt
     if($_SESSION['tipus'] =="admin"){
-    		
-    
+    		 
     ?>
 
         <div id="wrapper">
-            <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
+           <?php require_once "admin/admin-menu.php" ?>
 
-                <div id="kijelentkezes">
-                    <a href="logout.php">Kijelentkezés</a>
+            <div id="core" class="profile pull-left">
+                <h2 class="pull-center">Profil adatok</h2>
+
+                <div class="acc-row">
+                    <span class="acc-info">Regisztráció dátuma: </span><span class="acc-data"><?php echo $_SESSION["reg_datum"];?></span>
                 </div>
-
                 <br class="clearfix" />
 
-                <nav>
-                    <ul>
-                        <li>
-                            <a rel="external" href="#">Termék feltöltése</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Termék módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória felvétele</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Katalógus megtekintése</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <br class="clearfix" />
+                <div class="acc-row">
+                    <span class="acc-info">Felhasznaló név:</span><span class="acc-data"><?php echo $_SESSION["nev"];?></span>
+                </div>
+                <br class="clearfix" />
 
-                    <div id="side" class="sidebars pull-left">
-                    </div>
-                    <?php } else if( 
+                <div class="acc-row">
+                    <span class="acc-info">Email:</span><span class="acc-data"><?php echo $_SESSION["email"];?></span>
+                </div>
+                <br class="clearfix" />
+
+                <div class="acc-row">
+                    <span class="acc-info">Születési dátum:</span><span class="acc-data"><?php echo $_SESSION["szul_ido"];?></span>
+                </div>
+                <br class="clearfix" />
+
+                <form action="" method="POST" class="modosit">
+                    <input type="submit" value="Módosít" name="modosit" />
+                </form>
+            </div>
+
+            <div id="side2" class="sidebars pull-right">
+                <h3>Legutóbbi vásárlások</h3>
+            </div>
+                    <?php 	// Ha felhasználó típusú a bejelentkezett felhasználó,
+							// akkor megjelenítjük a hozzá tartozó profilt
+							
+							} else if( 
                     		$_SESSION['tipus']=="felhasznalo"){ ?>
-            <div id="wrapper">
-            <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
-			<br class="clearfix" />
-				<nav>  
-					<ul>  
-						<li class="menu-head">Profil adatok</li>
-							<li>
-								<ul class="inner">
-									<li><a href="logout.php">Kijelentkezés</a></li>
-									<li><a href="#">Adatok módosítása</a></li>
-									<li><a href="#">Regisztráció törlése</a></li>
-								</ul>
-							</li> <br class="clearfix" />
-						<li class="menu-head">Felhasználói funkciók</li>
-							<li>
-								<ul class="inner">
-									<li><a href="#">Számlaigénylés</a></li>
-									<li><a href="#">Vásárlói egyenleg feltöltés</a></li>
-									<li><a href="#">Vásárolt termékek kilistázása</a></li>
-								</ul>
-							</li>
-					</ul>  
-				</nav>
-		</div>
+		<div id="wrapper">
+		<?php require_once "template/felhasznalo-menu.php" ?>
 		
-          <div id="core" class="profile pull-left">
+        <div id="core" class="profile pull-left">
 			<h2 class="pull-center">Profil beállítások</h2>
 				
 				<div class="acc-row"><span class="acc-info">Regisztráció dátuma</span> <span class="acc-data"><?php echo $_SESSION["reg_datum"]; ?></span></div>
@@ -125,9 +105,8 @@
 					<input type="submit" value="Módosít" name="modosit" />
 				</form>
 				
-        </div> 
-		</header>
-		</div>
+        </div>
+		
 		<div id="side2" class="sidebars pull-right">
 			<h3>Kosár</h3>
 		</div>

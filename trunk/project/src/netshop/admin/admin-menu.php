@@ -1,10 +1,21 @@
 	<header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
-
-                <div id="kijelentkezes" class="pull-right">
-                    <a href="logout.php">Kijelentkezés</a>
-                </div>
-
+                <div id="bejelentkezes" class="headerbar-form pull-right">
+					<ul>
+	                	<?php
+		                	session_start();
+							if (!$_SESSION['email']) : ?>
+		                    <li><a href="admin/login.php">Bejelentkezés adminként</a></li>
+		                    <li><a href="registration.php">Regisztráció</a></li>
+	                	<?php endif; ?>
+	                	
+	                	<?php
+		                	session_start();
+							if ($_SESSION['email']) : ?>
+							<li><a href="logout.php">Kijelentkezés</a></li>
+	                	<?php endif; ?>
+					</ul>
+				</div>
                 <br class="clearfix" />
 
                 <nav>
@@ -42,10 +53,10 @@
                                     <a href="logout.php">Kijelentkezés</a>
                                 </li>
                                 <li>
-                                    <a href="update.php">Adatok módosítása</a>
+                                    <a href="admin/update.php">Adatok módosítása</a>
                                 </li>
                                 <li>
-                                    <a href="delete.php">Regisztráció törlése</a>
+                                    <a href="admin/delete.php">Regisztráció törlése</a>
                                 </li>
                             </ul>
                         </li>
@@ -55,13 +66,13 @@
                         <li>
                             <ul class="inner">
                                 <li>
-                                    <a href="#">Éves statisztika</a>
+                                    <a href="admin/stats.php">Éves statisztika</a>
                                 </li>
                                 <li>
-                                    <a href="#">Vásárlások listázása</a>
+                                    <a href="admin/orders.php">Vásárlások listázása</a>
                                 </li>
                                 <li>
-                                    <a href="#">Felhasználók kezelése</a>
+                                    <a href="admin/users.php">Felhasználók kezelése</a>
                                 </li>
                             </ul>
                         </li>
