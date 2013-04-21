@@ -1,7 +1,7 @@
 <?php
 
-	$FELHASZNALONEV = 'kacrabt';
-	$JELSZO = 'h956824';
+	$FELHASZNALONEV = 'threldar';
+	$JELSZO = 'threldar';
 	$HOST = 'localhost';
 	
 	$connect = oci_connect($FELHASZNALONEV, $JELSZO, $HOST);

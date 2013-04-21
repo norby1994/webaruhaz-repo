@@ -18,12 +18,10 @@
     </head>
 
     <body>
-    <?php
-	    if(!isset($_SESSION['user'])){
-	    	header("location:login.php");
-	    	exit;
-	    }
-    ?>
+        <?php
+			require_once "../php/felhasznalo.php";
+				session_check();
+        ?>
 
         <div id="wrapper">
             <header class="title-head">

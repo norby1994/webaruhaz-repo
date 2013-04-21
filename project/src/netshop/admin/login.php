@@ -1,4 +1,3 @@
-<?php ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -18,19 +17,29 @@
     </head>
 
     <body>
-    <?php
-
-		if (isset($_GET['Error'])) echo $_GET['Error']; 
-	?>
+        <?php
+		if (isset($_GET['Error']))
+			echo $_GET['Error'];
+        ?>
         <div id="wrapper">
-           	<div id="login-wrap">
-           		<form action="login_check.php" method="post" >
-           			<input type="email" name="email" id="email" placeholder="Email cím" /> <br />
-           			<input type="password" name="jelszo" id="jelszo" placeholder="Jelszó" /> <br />
-           			<input type="submit" name="login-submit" value="Bejelentkezés" />
-           		</form>
-           	</div>
+            <div id="login-wrap">
+                <form action="" method="post" >
+                    <input type="email" name="email" id="email" placeholder="Email cím" />
+                    <br />
+                    <input type="password" name="jelszo" id="jelszo" placeholder="Jelszó" />
+                    <br />
+                    <input type="submit" name="login-submit" value="Bejelentkezés" />
+                </form>
+            </div>
         </div>
+
+        <?php
+		require_once "../php/admin.php";
+		if (isset($_POST['login-submit'])) {
+			login_check();
+		}
+
+        ?>
 
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
