@@ -18,12 +18,7 @@
     </head>
 
     <body>
-    
-
-        <div id="wrapper">
-            <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
-<?php
+    <?php
     
     session_start();
     if(!$_SESSION['email']){
@@ -31,7 +26,15 @@
 	    	
 	    }
 	    
+    if($_SESSION['tipus'] =="admin"){
+    		
+    
     ?>
+
+        <div id="wrapper">
+            <header class="title-head">
+                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
+
                 <div id="kijelentkezes">
                     <a href="logout.php">Kijelentkezés</a>
                 </div>
@@ -61,17 +64,23 @@
             <br class="clearfix" />
 
                     <div id="side" class="sidebars pull-left">
-			<h3>Menü</h3>
+                    </div>
+                    <?php } else if( 
+                    		$_SESSION['tipus']=="felhasznalo"){ ?>
+            <div id="wrapper">
+            <header class="title-head">
+                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
+			<br class="clearfix" />
 				<nav>  
 					<ul>  
 						<li class="menu-head">Profil adatok</li>
 							<li>
 								<ul class="inner">
-									<li><a href="#">Kijelentkezés</a></li>
+									<li><a href="logout.php">Kijelentkezés</a></li>
 									<li><a href="#">Adatok módosítása</a></li>
 									<li><a href="#">Regisztráció törlése</a></li>
 								</ul>
-							</li>
+							</li> <br class="clearfix" />
 						<li class="menu-head">Felhasználói funkciók</li>
 							<li>
 								<ul class="inner">
@@ -87,13 +96,13 @@
           <div id="core" class="profile pull-left">
 			<h2 class="pull-center">Profil beállítások</h2>
 				
-				<div class="acc-row"><span class="acc-info">Reg datum</span> <span class="acc-data"><?php echo $_SESSION["reg_datum"]; ?></span></div>
+				<div class="acc-row"><span class="acc-info">Regisztráció dátuma</span> <span class="acc-data"><?php echo $_SESSION["reg_datum"]; ?></span></div>
 				<br class="clearfix" />
 				
 				<div class="acc-row"><span class="acc-info">Státusz: </span> <span class="acc-data"><?php echo $_SESSION["torzsvasarlo"];?></span></div>
 				<br class="clearfix" />		
 				
-				<div class="acc-row"><span class="acc-info">Felhasznaló név:</span> <span class="acc-data"><?php echo $_SESSION["felhasznalo_nev"]; ?></span></div>
+				<div class="acc-row"><span class="acc-info">Felhasznaló név:</span> <span class="acc-data"><?php echo $_SESSION["nev"]; ?></span></div>
 				<br class="clearfix" />
 				
 				<div class="acc-row"><span class="acc-info">Email:</span> <span class="acc-data"><?php echo $_SESSION["email"]; ?></span></div>			
@@ -117,12 +126,14 @@
 				</form>
 				
         </div> 
-		
+		</header>
+		</div>
 		<div id="side2" class="sidebars pull-right">
 			<h3>Kosár</h3>
 		</div>
 
         <?php 
+}
         include "footer.php"; 
         
         

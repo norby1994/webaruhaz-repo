@@ -1,4 +1,4 @@
-<?php require_once "../php/session.php"; ?>
+<?php ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -18,13 +18,17 @@
     </head>
 
     <body>
+    <?php
+
+		if (isset($_GET['Error'])) echo $_GET['Error']; 
+	?>
         <div id="wrapper">
            	<div id="login-wrap">
-           		<from action="$PHP_SELF" method="post" id="login">
-           			<input type="email" name="email" placeholder="Email cím" /> <br />
-           			<input type="password" name="jelszo" placeholder="Jelszó" /> <br />
+           		<form action="login_check.php" method="post" >
+           			<input type="email" name="email" id="email" placeholder="Email cím" /> <br />
+           			<input type="password" name="jelszo" id="jelszo" placeholder="Jelszó" /> <br />
            			<input type="submit" name="login-submit" value="Bejelentkezés" />
-           		</from>
+           		</form>
            	</div>
         </div>
 
