@@ -1,5 +1,8 @@
 <?php 
-	require_once 'php/felhasznalo.php';
+session_start();
+session_unset();
+
+session_destroy();
+Header("Location: index.php");	
 	
-	logout();
 ?>
