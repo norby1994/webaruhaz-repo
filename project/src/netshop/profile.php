@@ -1,4 +1,4 @@
-<?php require_once "php/session.php"; ?>
+<?php  ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -18,17 +18,20 @@
     </head>
 
     <body>
-    <?php
-	    if(!isset($_SESSION['user'])){
-	    	header("location:login.php");
-	    	exit;
-	    }
-    ?>
+    
 
         <div id="wrapper">
             <header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
-
+<?php
+    
+    session_start();
+    if(!$_SESSION['email']){
+	    	header("location:login.php");
+	    	
+	    }
+	    
+    ?>
                 <div id="kijelentkezes">
                     <a href="logout.php">Kijelentkezés</a>
                 </div>
@@ -81,31 +84,31 @@
 				</nav>
 		</div>
 		
-        <div id="core" class="profile pull-left">
+          <div id="core" class="profile pull-left">
 			<h2 class="pull-center">Profil beállítások</h2>
 				
-				<div class="acc-row"><span class="acc-info">Regisztráció dátuma: </span> <span class="acc-data">2013-APR-03.</span></div>
+				<div class="acc-row"><span class="acc-info">Reg datum</span> <span class="acc-data"><?php echo $_SESSION["reg_datum"]; ?></span></div>
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Státusz: </span> <span class="acc-data">Normál | Törzsvásárló</span></div>
+				<div class="acc-row"><span class="acc-info">Státusz: </span> <span class="acc-data"><?php echo $_SESSION["torzsvasarlo"];?></span></div>
 				<br class="clearfix" />		
 				
-				<div class="acc-row"><span class="acc-info">Felhasznaló név:</span> <span class="acc-data">Kun Béla</span></div>
+				<div class="acc-row"><span class="acc-info">Felhasznaló név:</span> <span class="acc-data"><?php echo $_SESSION["felhasznalo_nev"]; ?></span></div>
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Email:</span> <span class="acc-data">kun.bela@gmail.com</span></div>			
+				<div class="acc-row"><span class="acc-info">Email:</span> <span class="acc-data"><?php echo $_SESSION["email"]; ?></span></div>			
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Születési dátum:</span> <span class="acc-data">1990.08.08</span></div>
+				<div class="acc-row"><span class="acc-info">Születési dátum:</span> <span class="acc-data"><?php echo $_SESSION["szul_ido"]; ?></span></div>
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Lakcím:</span> <span class="acc-data">6623 Szeged, Szivárvány utca 52.</span></div>
+				<div class="acc-row"><span class="acc-info">Lakcím:</span> <span class="acc-data"></span></div>
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Telefon:</span> <span class="acc-data">06706664545</span></div>
+				<div class="acc-row"><span class="acc-info">Telefon:</span> <span class="acc-data"><?php echo $_SESSION["telefon"]; ?></span></div>
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Egyenleg:</span> <span class="acc-data">5 000 HUF</span></div>
+				<div class="acc-row"><span class="acc-info">Egyenleg:</span> <span class="acc-data"><?php echo $_SESSION["egyenleg"]; ?></span></div>
 				<br class="clearfix" />
 				
 								
@@ -113,10 +116,14 @@
 					<input type="submit" value="Módosít" name="modosit" />
 				</form>
 				
-        </div>
+        </div> 
 		
 		<div id="side2" class="sidebars pull-right">
 			<h3>Kosár</h3>
 		</div>
 
-        <?php include "footer.php"; ?>
+        <?php 
+        include "footer.php"; 
+        
+        
+        ?>
