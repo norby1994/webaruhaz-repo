@@ -49,8 +49,18 @@ function regisztracio() {
 	}
 }
 
+function regtorles() {
+	require_once "connection.php";
+	$sql = "DELETE FROM felhasznalo WHERE email = '" . $_SESSION['email'] ."'";
+	$bQ = oci_parse($connect, $sql);
+	if (oci_execute($bQ)) {
+		echo "<script>alert('Regisztráció törölve!'); window.location = 'logout.php';</script>";
+		//header("../logout.php");
+	}
+}
+
 /**
- * Felhasználó bejelentkeztetését és a 
+ * Felhasználó bejelentkeztetését és a
  * Session lekezelését elvégző metódus
  */
 function login_check() {
@@ -103,5 +113,4 @@ function session_check() {
 		header("location:../profil.php");
 	}
 }
-
 ?>

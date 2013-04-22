@@ -12,7 +12,7 @@
 	                	<?php
 		                	session_start();
 							if ($_SESSION['email']) : ?>
-							<li><a href="logout.php">Kijelentkezés</a></li>
+							<li><a href="../logout.php">Kijelentkezés</a></li>
 	                	<?php endif; ?>
 					</ul>
 				</div>
