@@ -50,17 +50,17 @@
 						<li class="menu-head">Profil adatok</li>
 							<li>
 								<ul class="inner">
-									<li><a href="#">Kijelentkezés</a></li>
-									<li><a href="#">Adatok módosítása</a></li>
-									<li><a href="#">Regisztráció törlése</a></li>
+									<li><a href="logout.php">Kijelentkezés</a></li>
+									<li><a href="profile-update.php">Adatok módosítása</a></li>
+									<li><a href="delete.php">Regisztráció törlése</a></li>
 								</ul>
 							</li>
 						<li class="menu-head">Felhasználói funkciók</li>
 							<li>
 								<ul class="inner">
-									<li><a href="#">Számlaigénylés</a></li>
-									<li><a href="#">Vásárlói egyenleg feltöltés</a></li>
-									<li><a href="#">Vásárolt termékek kilistázása</a></li>
+									<li><a href="check.php">Számlaigénylés</a></li>
+									<li><a href="balance.php">Vásárlói egyenleg feltöltés</a></li>
+									<li><a href="user-orders.php">Vásárolt termékek kilistázása</a></li>
 								</ul>
 							</li>
 					</ul>  

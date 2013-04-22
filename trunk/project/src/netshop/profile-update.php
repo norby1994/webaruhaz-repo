@@ -1,4 +1,3 @@
-<?php require_once "php/session.php"; ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -19,82 +18,23 @@
 
     <body>
         <?php
-			require_once "../php/felhasznalo.php";
+			require_once "php/felhasznalo.php";
 				session_check();
         ?>
 
         <div id="wrapper">
-            <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
-
-                <div id="kijelentkezes">
-                    <a href="logout.php">Kijelentkezés</a>
-                </div>
-
-                <br class="clearfix" />
-
-                <nav>
-                    <ul>
-                        <li>
-                            <a rel="external" href="#">Termék feltöltése</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Termék módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória felvétele</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória módosítása</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Katalógus megtekintése</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <br class="clearfix" />
-
-           <div id="side" class="sidebars pull-left">
-            <h3>Menü</h3>
-                <nav>  
-                    <ul>  
-                        <li class="menu-head">Profil Beállítások</li>
-                            <li>
-                                <ul class="inner">
-                                    <li><a href="#">Kijelentkezés</a></li>
-                                    <li><a href="#">Adatok módosítása</a></li>
-                                    <li><a href="#">Regisztráció törlése</a></li>
-                                </ul>
-                            </li>
-                        <li class="menu-head">Felhasználói funkciók</li>
-                            <li>
-                                <ul class="inner">
-                                    <li><a href="#">Számlaigénylés</a></li>
-                                    <li><a href="#">Vásárlói egyenleg feltöltés</a></li>
-                                    <li><a href="#">Vásárolt termékek kilistázása</a></li>
-                                </ul>
-                            </li>
-                    </ul>  
-                </nav>
-        </div>
+        <?php require_once "template/felhasznalo-menu.php" ?>
         
         <div id="core" class="profile pull-left">
             <h2 class="pull-center">Profil módosítások</h2>
                 
-                <div class="acc-row"><span class="acc-info"><label for="nev">Felhasznaló név:</label></span> <span class="acc-datam"><input type="text" placeholder="Kun Béla" name="nev" /></span></div>
+                <div class="acc-row"><span class="acc-info"><label for="nev">Felhasznaló név:</label></span> <span class="acc-datam"><input type="text" placeholder="<?php echo $_SESSION['nev']; ?>" name="nev" /></span></div>
                 <br class="clearfix" />
                 
-                <div class="acc-row"><span class="acc-info"><label for="email">Email:</label></span> <span class="acc-datam"><input type="text" placeholder="kun.bela@gmail.com" name="email" /></span></div>           
+                <div class="acc-row"><span class="acc-info"><label for="email">Email:</label></span> <span class="acc-datam"><input type="text" placeholder="<?php echo $_SESSION['email']; ?>" name="email" /></span></div>           
                 <br class="clearfix" />
                 
-                <div class="acc-row"><span class="acc-info">Születési dátum:</span><br />
-                
-                    <div class="acc-datam">
-                        <label for="ev">Év:</label> <input type="text" name="ev" placeholder="1990" /><br class="clearfix"/>
-                        <label for="honap">Hónap:</label> <input type="text" name="honap" placeholder="AUG" /><br class="clearfix"/>
-                        <label for="nap">Nap:</label> <input type="text" name="nap" class="pull-right" placeholder="08" /><br class="clearfix"/>
-                    </div></div>
+                <div class="acc-row"><span class="acc-info"><label for="szul_ido">Születési dátum:</span> <span class="acc-datam"><input type="text" placeholder="<?php echo $_SESSION['szul_ido']; ?>" name="szul_ido" /></span></div>
                 <br class="clearfix" />
                 
                 <div class="acc-row"><span class="acc-info">Lakcím:</span><br />
@@ -108,7 +48,7 @@
                 </div>
                 <br class="clearfix" />
                 
-                <div class="acc-row"><span class="acc-info"><label for="telefon">Telefon:</label></span> <span class="acc-datam"><input type="text" name="telefon" placeholder="06706664545" /></span></div>
+                <div class="acc-row"><span class="acc-info"><label for="telefon">Telefon:</label></span> <span class="acc-datam"><input type="text" name="telefon" placeholder="<?php echo $_SESSION['telefon']; ?>" /></span></div>
                 <br class="clearfix" />
                 
                                 
