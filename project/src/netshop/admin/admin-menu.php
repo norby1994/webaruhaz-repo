@@ -29,7 +29,7 @@
                             <a href="category-edit.php">Kategória módosítása</a>
                         </li>
                         <li>
-                            <a href="catalog.php">Katalógus megtekintése</a>
+                            <a href="admin/catalog.php">Katalógus megtekintése</a>
                         </li>
                     </ul>
                 </nav>
