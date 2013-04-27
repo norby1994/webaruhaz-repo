@@ -1,4 +1,4 @@
-<?php  ?>
+<?php error_reporting(0); ?>
 <!doctype html>
 <html lang="hu">
     <head>

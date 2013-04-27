@@ -11,11 +11,7 @@
 	                    <li><a href="registration.php">Regisztráció</a></li>
                 	<?php endif; ?>
                 	
-                	<?php
-	                	session_start();
-						if ($_SESSION['email']) : ?>
-						<li><a href="logout.php">Kijelentkezés</a></li>
-                	<?php endif; ?>
+                	
                 		
                 	</ul>
                 </div>

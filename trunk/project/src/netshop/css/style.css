@@ -1,5 +1,5 @@
 /*
-** F� st�luslap
+** Fďż˝ stďż˝luslap
 */
 
 body {
@@ -36,7 +36,7 @@ a { text-decoration: none; }
 }
 
 /*
-** Fejr�sz Design
+** Fejrďż˝sz Design
 */
 
 .title-head {
@@ -71,7 +71,7 @@ h1.cim {
 }
 
 /*
-** Oldals�v Design
+** Oldalsďż˝v Design
 */
 
 .sidebars {
@@ -113,7 +113,7 @@ h1.cim {
 
 
 /*
-** Main kont�ner
+** Main kontďż˝ner
 */
 
 #core h2 {
@@ -132,7 +132,7 @@ h1.cim {
 }
 
 /*
-** Katal�gus Design
+** Katalďż˝gus Design
 */
 
 #core section.products {
@@ -197,7 +197,7 @@ h1.cim {
 }
 
 /*
-** Kezd�lap Design
+** Kezdďż˝lap Design
 */
 .home {
 	width: 544px;
@@ -248,7 +248,7 @@ h1.cim {
 }
 
 /*
-** L�br�sz Design
+** Lďż˝brďż˝sz Design
 */ 
 
 footer {
@@ -281,14 +281,14 @@ footer a:active {
 
 
 /*
-** Regisztr�ci�
+** Regisztrďż˝ciďż˝
 */
 #regisztracio {
 	width: 340px;
 	margin: auto;
 }
 
-/* Placeholder st�lus normaliz�l�sa */  
+/* Placeholder stďż˝lus normalizďż˝lďż˝sa */  
 /* chrome, safari */  
 ::-webkit-input-placeholder {  
     color:#CCC;  
@@ -305,7 +305,7 @@ input.placeholder-text, textarea.placeholder-text  {
     font-style:italic;  
 }
 
-/* Box shadow kil�v�se a required mez�k k�r�l */
+/* Box shadow kilďż˝vďż˝se a required mezďż˝k kďż˝rďż˝l */
 input:required, textarea:required {  
     -moz-box-shadow:none;  
     -webkit-box-shadow:none;  
@@ -346,7 +346,7 @@ input:required, textarea:required {
 #regisztracio #hazszam { width: 30px; }
 
 /*
-** F�oldal
+** Fďż˝oldal
 */
 
 #core .top5-title {
@@ -390,7 +390,7 @@ input:required, textarea:required {
 }
 
 /*
-** Term�k profil
+** Termďż˝k profil
 */
 
 .product {
@@ -438,7 +438,7 @@ input:required, textarea:required {
 
 
 /*
-** Felhaszn�l� profil
+** Felhasznďż˝lďż˝ profil
 */
 
 .acc-info {
@@ -477,7 +477,7 @@ input:required, textarea:required {
 }
 
 /*
- * Felhasználók listázása
+ * FelhasznĂˇlĂłk listĂˇzĂˇsa
  */
 
 .users {
@@ -500,7 +500,7 @@ input:required, textarea:required {
 }
 
 /*
- * Bejelentkezés
+ * BejelentkezĂ©s
  */
 
 #login-wrap {
@@ -521,4 +521,24 @@ input:required, textarea:required {
     border-radius: 10px;
     border: none;
     margin: 10px;
+}
+
+#tablazat td{
+	
+		width: 120px;
+		height: 30px;
+		border-width: 2px 2px 2px 2px;
+		border-style:solid;
+		text-align:center;
+		vertical-align:center;
+		padding-top: 10px;
+		
+}
+#tablazat th {
+	font-size: 18px;
+	font-weight: bold;
+	color: green;
+}
+#tablazat td {
+	font-size: 16px;
 }
