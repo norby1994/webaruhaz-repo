@@ -2,14 +2,7 @@
                 <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
                 <div id="bejelentkezes" class="headerbar-form pull-right">
 					<ul>
-	                	<?php
-		                	session_start();
-							if (!$_SESSION['email']) : ?>
-		                    <li><a href="admin/login.php">Bejelentkezés adminként</a></li>
-		                    <li><a href="registration.php">Regisztráció</a></li>
-	                	<?php endif; ?>
-	                	
-	                	
+		                    <li><a href="logout.php">Kijelentkezés</a></li>
 					</ul>
 				</div>
                 <br class="clearfix" />
