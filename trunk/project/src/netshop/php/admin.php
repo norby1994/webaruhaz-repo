@@ -37,7 +37,7 @@ function login_check() {
 
 function regtorles() {
 	require_once "connection.php";
-	$sql = "DELETE FROM admin WHERE email = '" . $_SESSION['email'] ."'";
+	$sql = "DELETE FROM admin WHERE email = '" . $_SESSION['email'] . "'";
 	$bQ = oci_parse($connect, $sql);
 	if (oci_execute($bQ)) {
 		echo "<script>alert('Regisztráció törölve!'); window.location = '../logout.php';</script>";
@@ -74,15 +74,15 @@ function list_rendeles() {
 	// Rendelések lekérdezése
 	$stid = oci_parse($connect, 'SELECT rendeles_id, email, idopont, ossz_ar FROM rendeles');
 	if (!$stid) {
-			$e = oci_error($connect);
-			trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	// Lekérdezés 
+	// Lekérdezés
 	$r = oci_execute($stid);
-	if(!$r){
-			$e = oci_error($stid);
-			trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
-			
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
+
 	}
 	print "<table id='tablazat'>\n";
 	print "<tr>\n";
@@ -91,8 +91,7 @@ function list_rendeles() {
 	print "<th>Időpont</th>\n";
 	print "<th>Össz ár</th>\n";
 	print "</tr>\n";
-	
-	
+
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 		print "<tr>\n";
 		foreach ($row as $item) {
@@ -101,11 +100,12 @@ function list_rendeles() {
 		print "</tr>\n";
 	}
 	print "</table>\n";
-	
+
 	oci_free_statement($stid);
 	oci_close($connect);
-	
+
 }
+
 /**
  * Katalógus termékeinek listázása
  */
@@ -120,10 +120,10 @@ function list_termekek() {
 	}
 	// Lekérdezés
 	$r = oci_execute($stid);
-	if(!$r){
+	if (!$r) {
 		$e = oci_error($stid);
 		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
-			
+
 	}
 	print "<table id='tablazat'>\n";
 	print "<tr>\n";
@@ -133,7 +133,6 @@ function list_termekek() {
 	print "<th>Ár</th>\n";
 	print "<th>Darab szám</th>\n";
 	print "</tr>\n";
-
 
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 		print "<tr>\n";
@@ -148,7 +147,6 @@ function list_termekek() {
 	oci_close($connect);
 
 }
-
 
 /**
  * Felhasználók kilistázását megvalósító metódus
@@ -193,5 +191,113 @@ function list_users() {
 	oci_free_statement($stid);
 	oci_close($connect);
 
+}
+
+function data_update_populate($email) {
+	// admin adatok frissítése
+	require_once "../php/connection.php";
+	$stid = oci_parse($connect, "SELECT email, admin_nev, telefon, szul_ido FROM admin
+						WHERE email = '$email'");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés logikájának ellenőrzése
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés kilistázása
+
+	$res = oci_fetch_array($stid);
+
+	oci_free_statement($stid);
+	oci_close($connect);
+	return $res;
+}
+
+function data_update() {
+	if (isset($_POST['modosit'])) {
+		require "connection.php";
+
+		// Admin tábla
+		$nev = $_POST['admin_nev'];
+		$email = $_POST['email'];
+		$szul_ido = $_POST['szul_ido'];
+		$telefon = $_POST['telefon'];
+		$jelszo = $_POST['jelszo'];
+		$jelszo2 = $_POST['jelszo2'];
+
+		$azon = $_SESSION['email'];
+		$mess = '';
+
+		// jelszó ellenőrzés és frissítése
+		if ($jelszo != $jelszo2) {
+			echo "A jelszavak nem egyeznek!";
+			header('Location:../admin/update.php');
+		} else if ($jelszo == $jelszo2 && $jelszo != null) {
+			$fsql = "UPDATE admin SET jelszo='" . $jelszo . "' WHERE email = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'jelszó / ';
+			}
+		}
+
+		// név frissítése
+		if ($nev != null) {
+			$fsql = "UPDATE admin SET admin_nev='" . $nev . "' WHERE email = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'név / ';
+			}
+			$_SESSION['nev'] = $nev;
+		}
+
+		// email frissítése
+		if ($email != null) {
+			$fsql = "UPDATE admin SET email='" . $email . "' WHERE email = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'email / ';
+			}
+
+			$_SESSION['email'] = $email;
+		}
+
+		// szul_ido frissítése
+		if ($szul_ido != null) {
+			if (!strpos($szul_ido, '.') && strlen($szul_ido) != 10) {
+				echo "Hibás dátumformátum";
+				return;
+			} else {
+				$fsql = "UPDATE admin SET szul_ido=to_date('" . $szul_ido . "', 'yyyy.mm.dd.') WHERE email = '" . $azon . "'";
+				$bQ = oci_parse($connect, $fsql);
+				if (oci_execute($bQ)) {
+					$mess = $mess. 'születési dátum / ';
+				}
+
+				$_SESSION['szul_ido'] = $szul_ido;
+			}
+		}
+
+		// telefon frissítése
+		if ($telefon != null) {
+			$fsql = "UPDATE admin SET telefon='" . $telefon . "' WHERE email = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'telefonszám / ';
+			}
+			$_SESSION['telefon'] = $telefon;
+		}
+		
+		
+		oci_close($connect);
+		echo '<script type="text/javascript">
+			alert("A következő adatok frissítve lettek ' . $mess . ' .");
+			window.location.href="../profile.php";</script>';
+	}
 }
 ?>

@@ -56,10 +56,12 @@
                     <span class="acc-info">Születési dátum:</span><span class="acc-data"><?php echo $_SESSION["szul_ido"];?></span>
                 </div>
                 <br class="clearfix" />
+                
+                <div class="acc-row">
+                    <span class="acc-info">Telefonszám:</span><span class="acc-data"><?php echo $_SESSION["telefon"];?></span>
+                </div>
+                <br class="clearfix" />
 
-                <form action="" method="POST" class="modosit">
-                    <input type="submit" value="Módosít" name="modosit" />
-                </form>
             </div>
 
             <div id="side2" class="sidebars pull-right">
