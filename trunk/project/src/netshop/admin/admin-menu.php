@@ -1,25 +1,23 @@
 	<header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
                 <div id="bejelentkezes" class="headerbar-form pull-right">
-					<ul>
-		                    <li><a href="logout.php">Kijelentkezés</a></li>
-					</ul>
+					
 				</div>
                 <br class="clearfix" />
 
                 <nav>
                     <ul>
                         <li>
-                            <a href="product.php">Termék feltöltése</a>
+                            <a href="admin/product.php">Termék feltöltése</a>
                         </li>
                         <li>
                             <a href="product-edit.php">Termék módosítása</a>
                         </li>
                         <li>
-                            <a href="category.php">Kategória felvétele</a>
+                            <a href="admin/category.php">Kategória felvétele</a>
                         </li>
                         <li>
-                            <a href="category-edit.php">Kategória módosítása</a>
+                            <a href="admin/category-edit.php">Kategória módosítása</a>
                         </li>
                         <li>
                             <a href="admin/catalog.php">Katalógus megtekintése</a>

@@ -34,7 +34,9 @@ function login_check() {
 	}
 
 }
-
+/**
+ * Regisztráció törléése
+ */
 function regtorles() {
 	require_once "connection.php";
 	$sql = "DELETE FROM admin WHERE email = '" . $_SESSION['email'] . "'";
