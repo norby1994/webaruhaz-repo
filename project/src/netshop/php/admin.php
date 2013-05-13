@@ -3,7 +3,8 @@
  * Admin bejelentkeztetését és a
  * Session lekezelését elvégző metódus
  */
-function login_check() {
+function login_check() { 
+	// error_reporting(E_ERROR);
 	session_start();
 	require_once "../php/connection.php";
 
@@ -30,7 +31,9 @@ function login_check() {
 			$tipus = "admin";
 			$_SESSION["tipus"] = $tipus;
 			header("Location:../profile.php");
-		}
+		}else echo '<script type="text/javascript">
+			alert("Hibás email/jelszó ");
+			window.location.href="../admin/login.php";</script>';
 	}
 
 }
