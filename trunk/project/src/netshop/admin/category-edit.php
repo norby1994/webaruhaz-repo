@@ -65,7 +65,7 @@
 
                 <?php require_once '../php/connection.php';
 	// Rendelések lekérdezése
-	$stid = oci_parse($connect, 'SELECT  kategoria_nev FROM kategoria');
+	$stid = oci_parse($connect, 'SELECT * FROM kategoria');
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -81,21 +81,27 @@
 	print "<tr>\n";
 	print "<th>Kategória név</th>\n";
 	print "</tr>\n";
+$i = 0;
+	while ($row = oci_fetch_array($stid)):
+echo "<tr><td>" . htmlentities($row["KATEGORIA_NEV"]) . "</td>";
+$kat_nev = $row["KATEGORIA_NEV"];
 
-	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
-		print "<tr>\n";
-		foreach ($row as $item) {
-			print "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
-			print "<td><b> <a href='admin_edit.php?id=". $item ."'>Módosít</a></b></td>";
-			print "<td><b> <a href='admin_delete.php?id=". $item ."'>Töröl</a></b></td>";
-		}
-		print "</tr>\n";
-	}
+?>		
+<td>
+	<form name="modosit" action="admin_edit.php" method="GET">
+		<input type="hidden" name="edit" value="<?php echo $kat_nev; ?>"/>
+		<input type="submit" name="modosit" value="Módosít"/>
+	</form>
+</td>
+		
+			  
+		<?php 	
+		endwhile;
+		
+	
 	print "</table>\n";
                  
-				if (isset($_POST['modosit'])) {
-					data_update();
-				}
+				
                 ?>
             </div>
 
@@ -103,4 +109,7 @@
 
             </div>
 
+   </div>
+   </body>
+   </html>
             
