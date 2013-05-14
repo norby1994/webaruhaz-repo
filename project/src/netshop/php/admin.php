@@ -113,7 +113,7 @@ function list_rendeles() {
 
 }
 
-/**
+/*
  * Katalógus termékeinek listázása
  */
 function list_termekek() {
@@ -155,7 +155,7 @@ function list_termekek() {
 
 }
 
-/**
+/*
  * Felhasználók kilistázását megvalósító metódus
  */
 function list_users() {
@@ -200,6 +200,9 @@ function list_users() {
 
 }
 
+/*
+ * Admin adatok lekérdezése a frissítési űrlap feltöltéséhez
+ */
 function data_update_populate($email) {
 	// admin adatok frissítése
 	require_once "../php/connection.php";
@@ -226,6 +229,9 @@ function data_update_populate($email) {
 	return $res;
 }
 
+/*
+ * Admin adatok frissítésének lekezelése
+ */
 function data_update() {
 	if (isset($_POST['modosit'])) {
 		require "connection.php";
@@ -306,5 +312,46 @@ function data_update() {
 			alert("A következő adatok frissítve lettek ' . $mess . ' .");
 			window.location.href="../profile.php";</script>';
 	}
+}
+
+/*
+ * Termékek kilistázása a 'Termék módosítása' menüponthoz
+ */
+function product_list(){
+	require_once '../php/connection.php';
+	// Rendelések lekérdezése
+	$stid = oci_parse($connect, 'SELECT termek_nev, ar, darab_szam FROM termek');
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	// Lekérdezés
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
+
+	}
+	print "<table>\n";
+	print "<tr>\n";
+	print "<th>Termék név</th>\n";
+	print "<th>Ár</th>\n";
+	print "<th>Darabszám</th>\n";
+	print "<th>&nbsp;</th>\n";
+	print "</tr>\n";
+	
+	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
+		print "<tr>\n";
+			print "<td>" . $row['TERMEK_NEV'] . "</td>";
+			print "<td>" . $row['AR'] . "</td>";
+			print "<td>" . $row['DARAB_SZAM'] . "</td>";
+			print "<td>Szerkesztés</td>";
+		print "</tr>\n";
+	}
+	print "</table>\n";
+
+	oci_free_statement($stid);
+	oci_close($connect);			
+               
 }
 ?>

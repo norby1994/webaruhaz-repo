@@ -499,7 +499,7 @@ input:required, textarea:required {
  	text-align: left;
 }
 
-.users table td {
+#core table td {
  	border: 1px solid #333;
  	padding: 2px;
 }
