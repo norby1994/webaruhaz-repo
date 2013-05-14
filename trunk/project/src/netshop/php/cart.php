@@ -15,10 +15,6 @@ if (isset($_GET['add_id']) && logged_in()) {
 			window.location.href="../login.php";</script>';
 }
 
-function viewcart() {
-	
-}
-
 function addtocart($id) {
 	global $connect;
 	
