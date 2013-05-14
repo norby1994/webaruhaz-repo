@@ -7,6 +7,8 @@ require_once 'felhasznalo.php';
 
 if (isset($_GET['add_id']) && logged_in()) {
 	addtocart($_GET['add_id']);
+} else if (isset($_GET['remove_id']) && logged_in()) {
+	removefromcart($_GET['remove_id']);
 } else {
 	echo '<script type="text/javascript">
 			alert("Kérlek jelentkezz be.");
@@ -33,11 +35,6 @@ function addtocart($id) {
 		$e = oci_error($stid);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	
-	//$row = oci_fetch($stid);
-	
-	//print_r($row);
-	
 	while ($row = oci_fetch_array($stid, OCI_BOTH)) {
 		$data = array(
 			'id' => $id,
@@ -52,16 +49,13 @@ function addtocart($id) {
 }
 
 function removefromcart($id) {
-	$i = 0;
 	foreach ($_SESSION['cart']['items'] as $key => $value) {
-		$i++;
 		if ($value['id'] == $id) {
 			unset($_SESSION['cart']['items'][$key]);
 			echo '<script type="text/javascript">window.location.href="../cartview.php";</script>';
 		} else {
 			
 		}
-		
 	}
 }
 
