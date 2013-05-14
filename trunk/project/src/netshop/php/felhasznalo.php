@@ -91,7 +91,7 @@ function login_check() {
 		if ($_SESSION['email']) {
 			$tipus = "felhasznalo";
 			$_SESSION['tipus'] = $tipus;
-			header("Location:profile.php");
+			header("Location:index.php");
 		} else {
 			echo '<script type="text/javascript">
 			alert("Hibás email/jelszó ");
