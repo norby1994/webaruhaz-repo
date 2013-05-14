@@ -144,7 +144,7 @@ function list_termekek() {
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 		print "<tr>\n";
 		foreach ($row as $item) {
-			print "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+			print "    <td>" . ($item !== null ? htmlentities(iconv("ISO-8859-1", "UTF-8", $item), ENT_QUOTES) : "&nbsp;") . "</td>\n";
 		}
 		print "</tr>\n";
 	}

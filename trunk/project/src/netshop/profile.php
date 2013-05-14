@@ -38,7 +38,7 @@
                 <h2 class="pull-center">Profil adatok</h2>
 
                 <div class="acc-row">
-                    <span class="acc-info">Regisztráció dátuma: </span><span class="acc-data"><?php echo $_SESSION["reg_datum"];?></span>
+                    <span class="acc-info">Regisztráció dátuma: </span><span class="acc-data"><?php echo iconv("ISO-8859-1", "UTF-8", substr($_SESSION["reg_datum"], 0, -15));?></span>
                 </div>
                 <br class="clearfix" />
 
@@ -53,7 +53,7 @@
                 <br class="clearfix" />
 
                 <div class="acc-row">
-                    <span class="acc-info">Születési dátum:</span><span class="acc-data"><?php echo $_SESSION["szul_ido"];?></span>
+                    <span class="acc-info">Születési dátum:</span><span class="acc-data"><?php echo iconv("ISO-8859-1", "UTF-8", $_SESSION["szul_ido"]);?></span>
                 </div>
                 <br class="clearfix" />
                 
@@ -80,7 +80,7 @@
         <div id="core" class="profile pull-left">
 			<h2 class="pull-center">Profil beállítások</h2>
 				
-				<div class="acc-row"><span class="acc-info">Regisztráció dátuma</span> <span class="acc-data"><?php echo $_SESSION["reg_datum"]; ?></span></div>
+				<div class="acc-row"><span class="acc-info">Regisztráció dátuma</span> <span class="acc-data"><?php echo iconv("ISO-8859-1", "UTF-8", substr($_SESSION["reg_datum"], 0, -15)); ?></span></div>
 				<br class="clearfix" />
 				
 				<div class="acc-row"><span class="acc-info">Státusz: </span> <span class="acc-data"><?php echo $_SESSION["torzsvasarlo"];?></span></div>
@@ -92,7 +92,7 @@
 				<div class="acc-row"><span class="acc-info">Email:</span> <span class="acc-data"><?php echo $_SESSION["email"]; ?></span></div>			
 				<br class="clearfix" />
 				
-				<div class="acc-row"><span class="acc-info">Születési dátum:</span> <span class="acc-data"><?php echo $_SESSION["szul_ido"]; ?></span></div>
+				<div class="acc-row"><span class="acc-info">Születési dátum:</span> <span class="acc-data"><?php echo iconv("ISO-8859-1", "UTF-8", $_SESSION["szul_ido"]); ?></span></div>
 				<br class="clearfix" />
 				
 				<div class="acc-row"><span class="acc-info">Lakcím:</span> <span class="acc-data"></span></div>
