@@ -46,7 +46,7 @@ function addtocart($id) {
 			'termek_kep' => $row['TERMEK_KEP']
 		);
 		
-		$_SESSION['cart']['items'].push($data);
+		array_push($_SESSION['cart']['items'], $data);
 	}
 		
 	print_r($_SESSION['cart']);
