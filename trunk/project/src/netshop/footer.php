@@ -1,6 +1,6 @@
       <footer class="clearfix">
                 <div id="foot-nav">
-                    <a rel="external" href="index.php">Főoldal</a>
+                    <a rel="external" href="/netshop/index.php">Főoldal</a>
                 </div>
                 <p>
                     Copyrigt © 2013

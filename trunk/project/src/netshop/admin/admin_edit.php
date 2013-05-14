@@ -21,7 +21,7 @@
         <div id="wrapper">
 
 <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
+                <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
                 <div id="bejelentkezes" class="headerbar-form pull-right">
                     <ul>
                         <li>
@@ -63,7 +63,7 @@
                 </nav>
             </div>
             
-            <div id="core" class="profile pull-left">
+            <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Kategória módosítása</h2>
 
                

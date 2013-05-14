@@ -27,7 +27,7 @@
         <div id="wrapper">
 		<?php require_once "../template/admin-menu.php" ?>
             
-            <div id="core" class="profile pull-left">
+            <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Kategória módosítás</h2>
 
                 <?php require_once '../php/connection.php';
@@ -47,6 +47,7 @@
 	print "<table id='tablazat'>\n";
 	print "<tr>\n";
 	print "<th>Kategória név</th>\n";
+	print "<th>Művelet</th>\n";
 	print "</tr>\n";
 $i = 0;
 	while ($row = oci_fetch_array($stid)):
@@ -76,7 +77,7 @@ $kat_nev = $row["KATEGORIA_NEV"];
 
             </div>
 
-   </div>
-   </body>
-   </html>
+        <?php
+		include "../footer.php";
+        ?>
             
