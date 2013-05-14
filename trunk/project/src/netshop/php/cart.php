@@ -9,10 +9,17 @@ if (isset($_GET['add_id']) && logged_in()) {
 	addtocart($_GET['add_id']);
 } else if (isset($_GET['remove_id']) && logged_in()) {
 	removefromcart($_GET['remove_id']);
+} else if (isset($_GET['shopping'])) {
+	checkout();
 } else {
 	echo '<script type="text/javascript">
 			alert("Kérlek jelentkezz be.");
 			window.location.href="../login.php";</script>';
+}
+
+function checkout() {
+	global $connect;
+	$feltolt = "";
 }
 
 function addtocart($id) {
