@@ -44,7 +44,7 @@
 				<h3 class="pull-center top5-title">Legújabb Termékeink</h3>
 				<?php
 				require_once "/php/connection.php";
-				$friss_termek = "SELECT * FROM termek WHERE rownum <= 5 ORDER BY termek_id DESC";
+				$friss_termek = "SELECT * FROM termek WHERE rownum <= 6 ORDER BY termek_id DESC";
 				$stid = oci_parse($connect, $friss_termek);
 				if (!$stid) {
 					$e = oci_error($connect);
