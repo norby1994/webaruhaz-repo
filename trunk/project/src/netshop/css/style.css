@@ -204,37 +204,6 @@ h1.cim {
 /*
 ** Katalďż˝gus Design
 */
-
-#core section.products {
-	width: 174px;
-	height: 174px;
-	margin: 4px;
-	box-shadow: 2px 2px 3px #888;
-}
-
-#core section.products img:hover{
-	opacity: 1.0;
-}
-
-#core section.products img{
-	opacity: 0.7;
-}
-
-#core section a {
-	color: #fff;
-}
-
-#core section a:visited {
-	color: #fff;
-}
-
-#core section a:hover {
-	color: #fff;
-}
-
-#core section a:active {
-	color: #fff;
-}
 	
 .product-img {
 	z-index: -5;
@@ -278,40 +247,12 @@ h1.cim {
 	max-width: 910px;
 }
 
-.home  section {
-	width: 250px;
-	margin: 5px;
-}
-
 .home-top5-title {
 	position: absolute;
 	width: 250px;
 	z-index: 10000;
 	text-align: center;
 	background-color: rgba(50, 50, 50, 0.8);
-}
-
-#core section div.home-top5-title a {
-	padding: 5px 0 5px 0;
-	margin-top: -25px;
-	width: 250px;
-	display: block;
-	background-color: rgba(50, 50, 50, 0.8);
-}
-
-#core section div.home-top5-title a:visited {
-	color: #fff;
-	background-color: rgba(50, 50, 50, 0.8);
-}
-
-#core section div.home-top5-title a:hover {
-	color: #333;
-	background-color: rgba(200, 200, 200, 0.8);
-}
-
-#core section div.home-top5-title a:active {
-	color: #333;
-	background-color: rgba(200, 200, 200, 0.8);
 }
 
 /*
@@ -423,7 +364,9 @@ input:required, textarea:required {
 	font-size: 22px;
 	margin-bottom: 10px;
 	color: #6aad00;
-	text-shadow: 1px 1px 1px #304f00;
+	text-shadow: -1px 0 #333, 0 1px #333,
+      1px 0 #333, 0 -1px #333,
+      1px 1px 2px rgb(48, 79, 0);
 	}
 	
 #core .top5 {
@@ -434,6 +377,11 @@ input:required, textarea:required {
 	padding: 5px;
 	margin: 5px 10px 5px 10px;
 	box-shadow: 2px 2px 3px #888;
+}
+
+#core .top5:hover {
+	background: rgba(211,239,136,0.7);
+	box-shadow: 2px 2px 3px #268319;
 }
 
 #core .top5 img {
@@ -448,6 +396,27 @@ input:required, textarea:required {
 	font-weight: bold;
 	font-size: 15px;
 	margin: 5px 0 5px 0;
+	color: rgb(106, 173, 0);
+    text-shadow: -1px 0 #333, 0 1px #333,
+      1px 0 #333, 0 -1px #333,
+      1px 1px 2px rgb(48, 79, 0);
+    letter-spacing: 2px;
+}
+
+#core .top5-name a {
+	color: rgb(106, 173, 0);
+}
+
+#core .top5-name a:visited {
+	color: rgb(106, 173, 0);
+}
+
+#core .top5-name a:hover {
+	
+}
+
+#core .top5-name a:active {
+	
 }
 
 #core .top5-price {

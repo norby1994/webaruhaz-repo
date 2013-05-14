@@ -40,7 +40,6 @@
 			<br class="clearfix" />
 
 			<div id="core" class="landing pull-left">
-				<h2>Üdvözlünk a NetShop oldalán!</h2>
 				<?php category_view($_GET['id']); ?>
 				
 			</div>
