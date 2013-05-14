@@ -62,13 +62,13 @@
 				?>
 				<div class="top5">
 					<div class="top5-img">
-						<a href=""><img src="<?php echo $row['TERMEK_KEP']; ?>" alt="" /></a>
+						<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><img src="<?php echo $row['TERMEK_KEP']; ?>" alt="" /></a>
 					</div>
 					<div class="top5-name">
-						<a href=""><?php echo $row['TERMEK_NEV']; ?></a>
+						<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><?php echo iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']); ?></a>
 					</div>
 					<div class="top5-price">
-						<a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>">Kosárba</a> <?php echo $row['AR']; ?>
+						<a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/img/cart.png" alt="Kosárba tesz!" /></a> <?php echo $row['AR']; ?>
 					</div>
 				</div>
 				<?php 

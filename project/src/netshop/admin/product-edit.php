@@ -30,7 +30,10 @@
             <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Termékek módosítása</h2>
 
-                <?php product_list(); ?>
+                <?php 
+                require_once "../php/products.php";
+                product_list(); 
+                ?>
             </div>
 
             <div id="side2" class="sidebars pull-right">
