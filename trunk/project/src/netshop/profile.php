@@ -102,11 +102,6 @@
 				<div class="acc-row"><span class="acc-info">Egyenleg:</span> <span class="acc-data"><?php echo $_SESSION["egyenleg"]; ?></span></div>
 				<br class="clearfix" />
 				
-								
-				<form action="" method="POST" class="modosit">
-					<input type="submit" value="Módosít" name="modosit" />
-				</form>
-				
         </div>
 		
 		<div id="side2" class="sidebars pull-right">
