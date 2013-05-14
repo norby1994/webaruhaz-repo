@@ -1,10 +1,12 @@
 <?php
 
+session_start();
+
 require_once 'connection.php';
 require_once 'felhasznalo.php';
 
 if (isset($_GET['add_id']) && logged_in()) {
-	addtocart($$_GET['id']);
+	addtocart($_GET['add_id']);
 } else {
 	echo '<script type="text/javascript">
 			alert("Kérlek jelentkezz be.");
@@ -17,7 +19,10 @@ function viewcart() {
 
 function addtocart($id) {
 	$_SESSION['cart']['items'] = $id;
-	echo '<string type="text/javascript">window.history.back();</script>';
+	print_r($_SESSION['cart']);
+	echo '<string type="text/javascript">
+			window.history.go(-1);
+			</script>';
 }
 
 function removefromcart($id) {
