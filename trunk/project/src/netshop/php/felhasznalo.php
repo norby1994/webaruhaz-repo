@@ -78,19 +78,19 @@ function login_check() {
 
 		oci_execute($sql);
 		while ($row = oci_fetch_array($sql, OCI_BOTH)) {
-			$_SESSION["email"] = $row[0];
-			$_SESSION["nev"] = $row[2];
-			$_SESSION["szul_ido"] = $row[3];
-			$_SESSION["telefon"] = $row[5];
-			$_SESSION["egyenleg"] = $row[6];
-			$_SESSION["reg_datum"] = $row[7];
-			$_SESSION["torzsvasarlo"] = $row[8];
+			$_SESSION['email'] = $row[0];
+			$_SESSION['nev'] = $row[2];
+			$_SESSION['szul_ido'] = $row[3];
+			$_SESSION['telefon'] = $row[5];
+			$_SESSION['egyenleg'] = $row[6];
+			$_SESSION['reg_datum'] = $row[7];
+			$_SESSION['torzsvasarlo'] = $row[8];
 
 		}
 
-		if ($_SESSION["email"]) {
+		if ($_SESSION['email']) {
 			$tipus = "felhasznalo";
-			$_SESSION["tipus"] = $tipus;
+			$_SESSION['tipus'] = $tipus;
 			header("Location:profile.php");
 		}
 	}
