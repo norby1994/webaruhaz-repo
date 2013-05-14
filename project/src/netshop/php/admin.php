@@ -31,9 +31,11 @@ function login_check() {
 			$tipus = "admin";
 			$_SESSION["tipus"] = $tipus;
 			header("Location:../profile.php");
-		}else echo '<script type="text/javascript">
+		} else {
+			echo '<script type="text/javascript">
 			alert("Hibás email/jelszó ");
-			window.location.href="../admin/login.php";</script>';
+			window.location.href="../admin/login.php";</script>';	
+		}
 	}
 
 }
