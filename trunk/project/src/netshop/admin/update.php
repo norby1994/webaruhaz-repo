@@ -57,7 +57,13 @@
             <br class="clearfix" />
 
             <div id="side" class="sidebars pull-left">
-              
+              <nav>
+                    <ul>
+                        <li>
+                            <a href="/netshop/profile.php">Vissza</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
             
             <div id="core" class="profile pull-left">
