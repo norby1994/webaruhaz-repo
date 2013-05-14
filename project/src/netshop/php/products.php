@@ -109,10 +109,14 @@ function list_similar($id){
 /*
  * Termékekre való keresést megvalósító függvény
  */
-function product_search(){
+function search($term){
 	global $connect;
-	// termékek lekérdezése
-	$stid = oci_parse($connect, 'SELECT termek_id, termek_nev, ar FROM termek');
+	// termékek lekérdezése !!!NEM TRIVIÁLIS LEKÉRDEZÉS!!!
+	$stid = oci_parse($connect, "SELECT termek_id, termek_nev, termek_kep, rovid_leiras, ar, kategoria.kategoria_id, kategoria.kategoria_nev
+									FROM termek 
+									INNER JOIN kategoria ON termek.kategoria_id=kategoria.kategoria_id 
+									WHERE termek_nev LIKE '%$term%' 
+									ORDER BY termek.termek_nev");
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -124,24 +128,27 @@ function product_search(){
 		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
 
 	}
-	print "<table>\n";
-	print "<tr>\n";
-	print "<th>ID</th>\n";
-	print "<th>Termék név</th>\n";
-	print "<th>Ár</th>\n";
-	print "<th>Művelet</th>\n";
-	print "</tr>\n";
 	
-	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
-		print "<tr>\n";
-			print "<td>" . $row['TERMEK_ID'] . "</td>";
-			print "<td>" . iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']) . "</td>";
-			print "<td>" . $row['AR'] . "</td>";
-			print "<td>Szerkesztés</td>";
-		print "</tr>\n";
-	}
-	print "</table>\n";
-
+	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)): ?>
+		<div class="search-box">
+			 <a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/<?php echo $row['TERMEK_KEP']; ?>" alt="<?php echo iconv('ISO-8859-1', 'UTF-8', $row['TERMEK_NEV']); ?>"  /></a><br />
+			 <a href="/netshop/category_view.php?id=<?php echo $row['KATEGORIA_ID']; ?>"><?php echo $row['KATEGORIA_NEV']; ?></a>
+			 <div class="search-info">
+			 	<div class="search-title">
+			 		<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><?php echo iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']); ?></a>
+			 	</div>
+			 	<div class="search-short">
+			 		<p><?php echo iconv("ISO-8859-1", "UTF-8", $row['ROVID_LEIRAS']); ?></p>
+			 	</div>
+			 	<div class="search-price">
+			 		<a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/img/cart.png" alt="Kosárba tesz!" /></a> <?php echo $row['AR']; ?> Ft
+			 	</div>
+			 </div>
+		</div>
+	
+	<?php 
+	endwhile;
+	
 	oci_free_statement($stid);
 	oci_close($connect);			
                

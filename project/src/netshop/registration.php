@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="hu">
     <head>
@@ -46,7 +47,7 @@
         <div id="core" class="home pull-left">
 			<h2 class="pull-center">Regisztráció*</h2>
 	
-			<form action="" method="post" name="regisztracio" id="regisztracio" class="regisztracio" enctype="multipart/form-data">
+			<form action="" method="post" name="regisztracio" id="iform" class="regisztracio" enctype="multipart/form-data">
 					<label for="nev" class="pull-left">Név:</label>
 						<input type="text" id="nev" name="nev" class="pull-right" placeholder="név" required="required" /><br class="clearfix"/>
 						

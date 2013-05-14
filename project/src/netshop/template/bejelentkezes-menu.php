@@ -6,7 +6,10 @@
 <div id="bejelentkezes" class="headerbar-form pull-right">
 	<ul>
 		<li>
-			Üdvözlünk <a href="profile.php"><?php echo $_SESSION['nev']; ?></a>!
+			Üdvözlünk <a href="/netshop/profile.php"><?php echo $_SESSION['nev']; ?></a>!
+		</li>
+		<li>
+			<a href="/netshop/search.php">Keresés</a>
 		</li>
 		<li>
 			<a href="logout.php">Kijelentkezés</a>
@@ -25,6 +28,9 @@
 		</li>
 		<li>
 			<a href="registration.php">Regisztráció</a>
+		</li>
+		<li>
+			<a href="/netshop/search.php">Keresés</a>
 		</li>
 	</ul>
 </div>
