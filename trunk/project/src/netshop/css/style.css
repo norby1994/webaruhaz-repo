@@ -335,7 +335,7 @@ footer a:active {
 }  
 /* mozilla */  
 input:-moz-placeholder, textarea:-moz-placeholder {  
-    color:#CCC;  
+    color:#cccccc;  
     font-style:italic;  
 }  
 /* ie (faux placeholder) */  
