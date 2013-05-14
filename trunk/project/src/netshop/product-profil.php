@@ -43,7 +43,7 @@
 			<br class="clearfix" />
 
 			<div id="core" class="product pull-left">
-			<img src="<?php echo $termek['TERMEK_KEP']; ?>" alt="" class="pp-img" />
+			<img src="<?php echo $termek['TERMEK_KEP']; ?>" alt="<?php echo iconv("ISO-8859-1", "UTF-8", $termek['TERMEK_NEV']); ?>" class="pp-img" />
 			
 			<h2 class="pp-name"><?php echo $termek['TERMEK_NEV']; ?></h2>
 			

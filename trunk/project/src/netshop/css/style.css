@@ -47,6 +47,10 @@ a { text-decoration: none; }
 	padding: 5px;
 }
 
+.title-head nav {
+	margin-top: 5px;
+}
+
 .title-head nav a {
 	color: #000;
 	font-size: 14px;
@@ -316,10 +320,11 @@ footer a:active {
 /*
 ** Regisztrďż˝ciďż˝
 */
-#regisztracio {
+#iform {
 	width: 340px;
 	margin: auto;
 	padding: 20px;
+	text-align:center;
 }
 
 /* Placeholder stďż˝lus normalizďż˝lďż˝sa */  
@@ -347,14 +352,14 @@ input:required, textarea:required {
     box-shadow:none;  
 }  
 
-#regisztracio label {font-weight: bold; font-size: 14px; margin-top: 6px; }
+#iform label {font-weight: bold; font-size: 14px; margin-top: 6px; }
 
-#regisztracio input[type=text],
-#regisztracio input[type=email],
-#regisztracio input[type=password],
-#regisztracio input[type=tel],
-#regisztracio select,  
-#regisztracio textarea {  
+#iform input[type=text],
+#iform input[type=email],
+#iform input[type=password],
+#iform input[type=tel],
+#iform select,  
+#iform textarea {  
     width: 140px;  
     border: 1px solid #dbe8ce;  
     margin-bottom:7px;
@@ -362,22 +367,22 @@ input:required, textarea:required {
     padding:4px;  
 }
 
-#regisztracio input:focus,  
-#regisztracio select:focus,  
-#regisztracio textarea:focus {  
+#iform input:focus,  
+#iform select:focus,  
+#iform textarea:focus {  
     border: 1px solid #cdd8af;  
     background-color: #e1f4c5;  
 }
 
-#regisztracio #szuldatum { margin: 15px 0 5px 0; font-weight: bold;}
-#regisztracio #hint { font-size: 12px; color: #333; margin: 5px 0 10px 0; }
+#iform #szuldatum { margin: 15px 0 5px 0; font-weight: bold;}
+#iform #hint { font-size: 12px; color: #333; margin: 5px 0 10px 0; }
 
-#regisztracio #ev { width: 35px; margin-right: 5px;}
-#regisztracio #honap { width: 80px; margin-right: 5px;}
-#regisztracio #nap { width: 25px;}
+#iform #ev { width: 35px; margin-right: 5px;}
+#iform #honap { width: 80px; margin-right: 5px;}
+#iform #nap { width: 25px;}
 
-#regisztracio #ir_szam { width: 43px; }
-#regisztracio #hazszam { width: 30px; }
+#iform #ir_szam { width: 43px; }
+#iform #hazszam { width: 30px; }
 
 /*
 ** Fďż˝oldal
