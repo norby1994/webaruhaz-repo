@@ -20,27 +20,22 @@
     
         <div id="wrapper">
             <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.html">NetShop</a></h1>
+                <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
 
-                <div id="kijelentkezes" class="pull-right">
-                    <a href="logout.php">Kijelentkezés</a>
-                </div>
+                <?php
+	require_once '/template/bejelentkezes-menu.php';
+ ?>
 
-                <br class="clearfix" />
+				<br class="clearfix" />
 
-                <nav>
-                    <ul>
-                        <li>
-                            <a rel="external" href="#">kategória1</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">kategória2</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">kategória3</a>
-                        </li>
-                    </ul>
-                </nav>
+				<nav>
+					<ul>
+						<?php
+						require_once 'php/categories.php';
+						category_menu();
+ ?>
+					</ul>
+				</nav>
             </header>
             <br class="clearfix" />
 

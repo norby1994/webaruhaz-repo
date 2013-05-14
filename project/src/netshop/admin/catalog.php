@@ -29,7 +29,7 @@
         <div id="wrapper">
             <?php require_once "../template/admin-menu.php"
             ?>
-            <div id="core" class="profile pull-left">
+            <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Katalógus</h2>
 
                 <?php list_termekek(); ?>

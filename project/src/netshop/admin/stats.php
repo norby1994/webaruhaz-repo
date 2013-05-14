@@ -29,7 +29,7 @@
 
 <?php require_once "../template/admin-menu.php" ?>
 
-<div id="core" class="orders pull-left">
+<div id="core" class="admin-full pull-left">
 <h2 class="pull-center">Éves statisztika</h2>
 
 Szerkesztés alatt...
