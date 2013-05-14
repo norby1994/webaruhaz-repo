@@ -92,6 +92,10 @@ function login_check() {
 			$tipus = "felhasznalo";
 			$_SESSION['tipus'] = $tipus;
 			header("Location:profile.php");
+		} else {
+			echo '<script type="text/javascript">
+			alert("Hibás email/jelszó ");
+			window.location.href="/netshop/login.php";</script>';
 		}
 	}
 
