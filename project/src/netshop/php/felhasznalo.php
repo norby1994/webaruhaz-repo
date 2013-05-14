@@ -117,4 +117,17 @@ function session_check() {
 		header("location:../profil.php");
 	}
 }
+
+/**
+ * Egy egyszerű vizsgálat, ami vizsgálja, 
+ * hogy be van-e jelentkezve a felhasználó
+ * true-val vagy false-szal tér vissza
+ */
+ function logged_in() {
+ 	if (isset($_SESSION['email'])) {
+ 		return true;
+ 	} else {
+ 		return false;
+ 	}
+ }
 ?>
