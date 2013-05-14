@@ -2,12 +2,14 @@
 /**
  * kategóriás dolgokért felel
  */
-
+ 
+ require_once "connection.php";
+ 
 /**
  * a kategóriákat jeleníti meg a menüben
  */
 function category_menu() {
-	require_once "connection.php";
+	global $connect;
 	$stid = oci_parse($connect, 'SELECT * FROM kategoria');
 	if (!$stid) {
 		$e = oci_error($connect);
@@ -24,7 +26,6 @@ function category_menu() {
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 		echo '<li><a href="category_view.php?id=' . $row['KATEGORIA_ID'] . '">' . $row['KATEGORIA_NEV'] . '</a></li>';
 	}
-
 	oci_free_statement($stid);
 	oci_close($connect);
 }
@@ -34,13 +35,13 @@ function category_menu() {
  * tartozó termékek kilistázása
  */
 function category_view($id) {
-	require_once "connection.php";
-	$stid = oci_parse($connect, 'SELECT * FROM termek WHERE kategoria_id = $id');
+	global $connect;
+	$stid = oci_parse($connect, 'SELECT * FROM termek WHERE kategoria_id = \'$id\'');
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-
+	echo $stid;
 	$r = oci_execute($stid);
 	if (!$r) {
 		$e = oci_error($stid);
