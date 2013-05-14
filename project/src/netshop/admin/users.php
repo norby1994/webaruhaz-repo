@@ -18,17 +18,16 @@
 
     <body>
 	    <?php
-		/**
+		/*
 		 * session ellenőrzés elvégzése, hogy illetéktelen 
 		 * nem admin felhasználók ne nézhessék meg ennek az oldalnak a tartalmát	
 		 */ 
 		require_once "../php/admin.php";
-		session_check();
-						    		 
+		session_check();				    		 
 	    ?>
+	    
 		<div id="wrapper">
-			
-        	<?php require_once "admin-menu.php" ?>
+        	<?php require_once "../template/admin-menu.php" ?>
 
             <div id="core" class="users pull-left">
                 <h2 class="pull-center">Regisztrált Felhasználók</h2>

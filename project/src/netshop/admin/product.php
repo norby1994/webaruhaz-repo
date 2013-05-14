@@ -25,18 +25,20 @@
         
 
         <div id="wrapper">
-			<header class="title-head">
+			 <header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
                 <div id="bejelentkezes" class="headerbar-form pull-right">
-					<ul>
-		                    <li><a href="../logout.php">Kijelentkezés</a></li>
-					</ul>
-				</div>
+                    <ul>
+                        <li>
+                            <a href="../logout.php">Kijelentkezés</a>
+                        </li>
+                    </ul>
+                </div>
                 <br class="clearfix" />
 
                 <nav>
                     <ul>
-                    	<li>
+                        <li>
                             <a href="product.php">Termék feltöltése</a>
                         </li>
                         <li>
@@ -57,7 +59,13 @@
             <br class="clearfix" />
 
             <div id="side" class="sidebars pull-left">
-              
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="product-edit.php">Vissza a termékekhez</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
             
             <div id="core" class="profile pull-left">

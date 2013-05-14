@@ -18,24 +18,50 @@
 
     <body>
 
-       
-        
-
         <div id="wrapper">
-			<header class="title-head">
+
+<header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
                 <div id="bejelentkezes" class="headerbar-form pull-right">
-					<ul>
-		                    <li><a href="../logout.php">Kijelentkezés</a></li>
-					</ul>
-				</div>
+                    <ul>
+                        <li>
+                            <a href="../logout.php">Kijelentkezés</a>
+                        </li>
+                    </ul>
+                </div>
                 <br class="clearfix" />
 
-                
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="product.php">Termék feltöltése</a>
+                        </li>
+                        <li>
+                            <a href="product-edit.php">Termék módosítása</a>
+                        </li>
+                        <li>
+                            <a href="category.php">Kategória felvétele</a>
+                        </li>
+                        <li>
+                            <a href="category-edit.php">Kategória módosítása</a>
+                        </li>
+                        <li>
+                            <a href="catalog.php">Katalógus megtekintése</a>
+                        </li>
+                    </ul>
+                </nav>
             </header>
             <br class="clearfix" />
 
-           
+            <div id="side" class="sidebars pull-left">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="category-edit.php">Vissza a kategóriákhoz</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             
             <div id="core" class="profile pull-left">
                 <h2 class="pull-center">Kategória módosítása</h2>
