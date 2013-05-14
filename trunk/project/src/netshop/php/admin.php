@@ -313,45 +313,4 @@ function data_update() {
 			window.location.href="../profile.php";</script>';
 	}
 }
-
-/*
- * Termékek kilistázása a 'Termék módosítása' menüponthoz
- */
-function product_list(){
-	require_once '../php/connection.php';
-	// Rendelések lekérdezése
-	$stid = oci_parse($connect, 'SELECT termek_id, termek_nev, ar FROM termek');
-	if (!$stid) {
-		$e = oci_error($connect);
-		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-	}
-	// Lekérdezés
-	$r = oci_execute($stid);
-	if (!$r) {
-		$e = oci_error($stid);
-		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
-
-	}
-	print "<table>\n";
-	print "<tr>\n";
-	print "<th>ID</th>\n";
-	print "<th>Termék név</th>\n";
-	print "<th>Ár</th>\n";
-	print "<th>Művelet</th>\n";
-	print "</tr>\n";
-	
-	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
-		print "<tr>\n";
-			print "<td>" . $row['TERMEK_ID'] . "</td>";
-			print "<td>" . $row['TERMEK_NEV'] . "</td>";
-			print "<td>" . $row['AR'] . "</td>";
-			print "<td>Szerkesztés</td>";
-		print "</tr>\n";
-	}
-	print "</table>\n";
-
-	oci_free_statement($stid);
-	oci_close($connect);			
-               
-}
 ?>
