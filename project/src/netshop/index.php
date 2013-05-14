@@ -28,7 +28,7 @@
 
                 <nav>
                     <ul>
-                    	<?php require_once 'categories.php'; category_menu(); ?>
+                    	<?php require_once 'php/categories.php'; category_menu(); ?>
                     </ul>
                 </nav>
             </header>
