@@ -90,7 +90,7 @@ function login_check() {
 		require_once 'cart.php';
 		clearcart();
 		
-		$_SESSION['cart'][] = $items;
+		$_SESSION['cart']['items'] = array();
 
 		if ($_SESSION['email']) {
 			$tipus = "felhasznalo";
