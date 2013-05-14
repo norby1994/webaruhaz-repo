@@ -20,7 +20,7 @@
 	<body>
 		<div id="wrapper">
 			<header class="title-head">
-				<h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
+				<h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
 
 				<?php
 	require_once '/template/bejelentkezes-menu.php';
