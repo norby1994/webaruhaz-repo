@@ -75,7 +75,11 @@
         </div>
 		
 		<div id="side2" class="sidebars pull-right">
-			<h3>Kosár</h3>
+			<h3>Hasonló termékek</h3>
+			<?php
+				require_once '/php/products.php';
+				list_similar($termek['KATEGORIA_ID']);
+			?>
 		</div>
 
 			<?php
