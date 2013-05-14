@@ -59,7 +59,7 @@
 				<?php 
 				endforeach;
 				?>
-
+				<a href="cart.php?shopping=true">Vásárlás</a>
 			<?php
 	include "footer.php";
  ?>
