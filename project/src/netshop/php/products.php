@@ -61,7 +61,7 @@ function product_list(){
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 		print "<tr>\n";
 			print "<td>" . $row['TERMEK_ID'] . "</td>";
-			print "<td>" . $row['TERMEK_NEV'] . "</td>";
+			print "<td>" . iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']) . "</td>";
 			print "<td>" . $row['AR'] . "</td>";
 			print "<td>Szerkesztés</td>";
 		print "</tr>\n";

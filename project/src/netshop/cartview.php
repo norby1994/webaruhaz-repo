@@ -24,6 +24,14 @@
                 <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
 				<?php
 	require_once '/template/bejelentkezes-menu.php';
+	
+	if ($_SESSION['tipus'] == "admin") {
+		echo '<script type="text/javascript">
+			alert("Adminoknak nem szabad.");
+			window.location.href="index.php";</script>';
+	}
+	
+	
  ?>
 
 				<br class="clearfix" />

@@ -94,7 +94,7 @@
 
                 <div class="acc-row">
                     <span class="acc-info"><label for="ev">Születési dátum:</label></span><span class="acc-datam">
-                        <input type="text" name="szul_ido" placeholder="<?php echo $data['SZUL_IDO']; ?>" />
+                        <input type="text" name="szul_ido" placeholder="<?php echo iconv("ISO-8859-1", "UTF-8", $data['SZUL_IDO']); ?>" />
                     </span>
                 </div>
 
