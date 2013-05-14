@@ -21,13 +21,7 @@
             <header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
 
-                <div id="bejelentkezes" class="headerbar-form pull-right">
-                	<ul>
-                		<li><a href="login.php">Bejelentkezés felhasználóként</a></li>
-	                    <li><a href="admin/login.php">Bejelentkezés adminként</a></li>
-	                    <li><a href="registration.php">Regisztráció</a></li>
-                	</ul>
-                </div>
+                <?php require_once '/template/bejelentkezes-menu.php'; ?>
 
                 <br class="clearfix" />
 
