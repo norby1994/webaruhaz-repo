@@ -1,0 +1,18 @@
+Könyvtárhierarchia:
+- admin
+	ebbe a mappába találhatóak az adminisztátori (backend) részhez tartozó fájlok)
+	
+- css
+	stíluslapok mappája
+	
+- js
+	javascriptek mappája
+	
+- php
+	funkciók gyűjteménye az egyes entitásokhoz
+	
+- sql
+	adatbázis scripteket tartalmazó mappa
+	
+- template
+	menük innen vannak beemelve az egyes felhasználó típusoknak
