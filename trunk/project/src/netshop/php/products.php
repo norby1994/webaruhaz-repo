@@ -10,12 +10,13 @@ require_once "connection.php";
  */
 function product_info($pid){
 	global $connect;
+	// termék adatainak lekérdezése
 	$stid = oci_parse($connect, "SELECT * FROM termek WHERE termek_id = '$pid'");
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-
+	// Lekérdezés
 	$r = oci_execute($stid);
 	if (!$r) {
 		$e = oci_error($stid);
@@ -37,7 +38,7 @@ function product_info($pid){
  */
 function product_list(){
 	global $connect;
-	// Rendelések lekérdezése
+	// termékek lekérdezése
 	$stid = oci_parse($connect, 'SELECT termek_id, termek_nev, ar FROM termek');
 	if (!$stid) {
 		$e = oci_error($connect);

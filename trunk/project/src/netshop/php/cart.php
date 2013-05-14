@@ -22,6 +22,9 @@ function checkout() {
 	$feltolt = "";
 }
 
+/*
+ * Termék bevásárlókocsiba rakását elvégző metódus
+ */
 function addtocart($id) {
 	global $connect;
 	
@@ -51,6 +54,9 @@ function addtocart($id) {
 	echo '<script type="text/javascript">window.location.href="../cartview.php";</script>';
 }
 
+/*
+ * Termék törlése a bevásárlókocsiból
+ */
 function removefromcart($id) {
 	foreach ($_SESSION['cart']['items'] as $key => $value) {
 		if ($value['id'] == $id) {

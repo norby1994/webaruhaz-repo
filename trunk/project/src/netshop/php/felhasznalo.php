@@ -49,6 +49,9 @@ function regisztracio() {
 	}
 }
 
+/*
+ * Regisztráció törlés megvalósítása 
+ */
 function regtorles() {
 	require_once "connection.php";
 	$sql = "DELETE FROM felhasznalo WHERE email = '" . $_SESSION['email'] ."'";
