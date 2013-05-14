@@ -73,21 +73,21 @@
 				<form action="" method="POST" class="modosit">
                 <div class="acc-row">
                     <span class="acc-info"><label for="nev">Admin név:</label></span><span class="acc-datam">
-                        <input type="text" placeholder="<?php echo $data[ADMIN_NEV]; ?>" name="admin_nev" />
+                        <input type="text" placeholder="<?php echo $data['ADMIN_NEV']; ?>" name="admin_nev" />
                     </span>
                 </div>
                 <br class="clearfix" />
 
                 <div class="acc-row">
                     <span class="acc-info"><label for="email">Email:</label></span><span class="acc-datam">
-                        <input type="email" placeholder="<?php echo $data[EMAIL]; ?>" name="email" />
+                        <input type="email" placeholder="<?php echo $data['EMAIL']; ?>" name="email" />
                     </span>
                 </div>
                 <br class="clearfix" />
 
                 <div class="acc-row">
                     <span class="acc-info"><label for="ev">Születési dátum:</label></span><span class="acc-datam">
-                        <input type="text" name="szul_ido" placeholder="<?php echo $data[SZUL_IDO]; ?>" />
+                        <input type="text" name="szul_ido" placeholder="<?php echo $data['SZUL_IDO']; ?>" />
                     </span>
                 </div>
 
@@ -95,7 +95,7 @@
 
                 <div class="acc-row">
                     <span class="acc-info"><label for="telefon">Telefon:</label></span><span class="acc-datam">
-                        <input type="text" name="telefon" placeholder="<?php echo $data[TELEFON]; ?>" />
+                        <input type="text" name="telefon" placeholder="<?php echo $data['TELEFON']; ?>" />
                     </span>
                 </div>
                 <br class="clearfix" />
