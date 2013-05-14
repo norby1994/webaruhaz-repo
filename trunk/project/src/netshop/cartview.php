@@ -53,7 +53,7 @@
 						<a href=""><?php echo $value['nev']; ?></a>
 					</div>
 					<div class="top5-price">
-						<a href="php/cart.php?remove_id=<?php echo $value['id']; ?>">Töröl</a> <?php echo $value['ar']; ?>
+						<a href="php/cart.php?remove_id=<?php echo $value['id']; ?>"><img src="/netshop/img/cancel.png" alt="Kivesz a kosárból!" /></a> <?php echo $value['ar']; ?> FT
 					</div>
 				</div>
 				<?php 
