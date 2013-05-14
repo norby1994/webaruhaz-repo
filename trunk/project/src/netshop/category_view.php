@@ -31,7 +31,7 @@
 				<nav>
 					<ul>
 						<?php
-						require_once 'categories.php';
+						require_once '/php/categories.php';
 						category_menu();
  ?>
 					</ul>
@@ -40,9 +40,8 @@
 			<br class="clearfix" />
 
 			<div id="core" class="landing pull-left">
-				<?php require_once '/php/categories.php'; ?>
 				<h2>Üdvözlünk a NetShop oldalán!</h2>
-				<?php category_view(); ?>
+				<?php category_view($_GET['id']); ?>
 				
 			</div>
 
