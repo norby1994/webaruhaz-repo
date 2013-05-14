@@ -21,7 +21,7 @@ function addtocart($id) {
 	$_SESSION['cart']['items'] = $id;
 	print_r($_SESSION['cart']);
 	echo '<string type="text/javascript">
-			window.history.go(-1);
+			window.location.href="../cartview.php";
 			</script>';
 }
 
