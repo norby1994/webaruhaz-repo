@@ -62,13 +62,13 @@
 				?>
 				<div class="top5">
 					<div class="top5-img">
-						<a href=""><img src="img/p02.jpg" alt="" /></a>
+						<a href=""><img src="<?php echo $row['TERMEK_KEP']; ?>" alt="" /></a>
 					</div>
 					<div class="top5-name">
-						<a href="">Terméknév</a>
+						<a href=""><?php echo $row['TERMEK_NEV']; ?></a>
 					</div>
 					<div class="top5-price">
-						5.000 HUF
+						<?php echo $row['AR']; ?>
 					</div>
 				</div>
 				<?php 
