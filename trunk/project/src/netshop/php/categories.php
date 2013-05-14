@@ -58,7 +58,7 @@ function category_view($id) {
 			<a href=""><?php echo $row['TERMEK_NEV']; ?></a>
 		</div>
 		<div class="top5-price">
-			<?php echo $row['AR']; ?>
+			<a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>">Kosárba</a> <?php echo $row['AR']; ?>
 		</div>
 	</div>
 	<?php
