@@ -2,6 +2,10 @@
 
 require_once 'connection.php';
 
+function viewcart() {
+	
+}
+
 function addtocart() {
 	
 }
