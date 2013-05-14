@@ -181,6 +181,28 @@ h1.cim {
 	color: #fff;
 }
 
+#side2 #similar {
+    margin: -8px 0px 0px 1px;
+    padding: 5px;
+    background: rgba(211,239,136,0.5);
+}
+
+#side2 #similar a {
+	color: #222;
+}
+
+#side2 #similar a:visited {
+	color: #222;
+}
+
+#side2 #similar a:hover {
+	color: #fff;
+}
+
+#side2 #similar a:active {
+	color: #fff;
+}
+
 
 
 /*
