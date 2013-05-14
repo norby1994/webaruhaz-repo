@@ -27,7 +27,7 @@
         <div id="wrapper">
 		<?php require_once "../template/admin-menu.php" ?>
             
-            <div id="core" class="profile pull-left">
+            <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Termékek módosítása</h2>
 
                 <?php product_list(); ?>
@@ -37,7 +37,7 @@
 
             </div>
 
-   </div>
-   </body>
-   </html>
+        <?php
+		include "../footer.php";
+        ?>
             

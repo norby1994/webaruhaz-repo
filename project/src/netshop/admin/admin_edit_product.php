@@ -2,7 +2,7 @@
 <html lang="hu">
     <head>
         <meta charset="utf-8">
-        <title>NetShop - Admin | Kategória felvétele</title>
+        <title>NetShop - Admin | Termék módosítása</title>
         <meta name="description" content="Internetes áruház" />
         <meta name="author" content="Kasziba Szintia, Verebélyi Bertalan, Verebélyi Csaba" />
         <link rel="shortcut icon" href="../img/favicon.png" />
@@ -18,14 +18,17 @@
 
     <body>
 
-        <?php
-		require_once "../php/admin.php";
-		session_check();
-        ?>
-
         <div id="wrapper">
-            <header class="title-head">
+
+<header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
+                <div id="bejelentkezes" class="headerbar-form pull-right">
+                    <ul>
+                        <li>
+                            <a href="../logout.php">Kijelentkezés</a>
+                        </li>
+                    </ul>
+                </div>
                 <br class="clearfix" />
 
                 <nav>
@@ -51,7 +54,6 @@
             <br class="clearfix" />
 
             <div id="side" class="sidebars pull-left">
-            	<h3>Menü</h3>
                 <nav>
                     <ul>
                         <li>
@@ -60,51 +62,45 @@
                     </ul>
                 </nav>
             </div>
-
+            
             <div id="core" class="admin-full pull-left">
-                <h2 class="pull-center">Új kategória felvétele</h2>
+                <h2 class="pull-center">Termék módosítása</h2>
 
+               
+                
                 <br class="clearfix" />
-                <form action="" method="POST" class="felvetel">
-                    <div class="acc-row">
-                        <span class="acc-info"><label for="kategoria">Attribútum:</label></span><span class="acc-datam">
-                            <?php
-							require_once '../php/connection.php';
-							$sql = "SELECT attributum_nev FROM attributum";
-							$result = oci_parse($connect, $sql);
-							oci_execute($result);
-							echo "<select name='ertek'>";
-							echo "<option value=''>-- Select --</option>";
-							while ($eredmeny = oci_fetch_row($result)) {
-								foreach ($eredmeny as $item) {
-									echo "<option value='=$item;'>$item</option>";
-								}
-							}
-							echo "</select>";
-                            ?></span>
-                    </div>
-                    <br class="clearfix" />
+				<form action="" method="POST" class="modosit">
+                <div class="acc-row">
+                    <span class="acc-info"><label for="kategoria_ nev">Új kategória név:</label></span><span class="acc-datam">
+                        <input type="text" placeholder="<?php echo $_GET['edit']; ?>" name="kategoria_nev" />
+                    </span>
+                </div>
+                <br class="clearfix" />
 
-                    <div class="acc-row">
-                        <span class="acc-info"><label for="kategoria_nev">Kategória név:</label></span><span class="acc-datam">
-                            <input type="text" name="kategoria_nev" />
-                        </span>
-                    </div>
-                    <br class="clearfix" />
-                    <input type="submit" value="Felvétel" class="pull-center" name="felvetel" />
+                    <input type="submit" value="Módosít" class="pull-center" name="modosit" />
                 </form>
 
                 <?php
-				if (isset($_POST['modosit'])) {
-					data_update();
-				}
+				
+					if (isset($_POST['modosit'])) {
+					
+						require "../php/connection.php";
+						$nev = $_POST['kategoria_nev'];
+						$fsql = "UPDATE kategoria SET KATEGORIA_NEV='" . $nev . "' WHERE KATEGORIA_NEV = '" . $_GET['edit'] . "'";
+						$bQ = oci_parse($connect, $fsql);
+						if (oci_execute($bQ)) {
+							header("Location:category-edit.php"); 
+						}
+					}
+				
                 ?>
             </div>
 
             <div id="side2" class="sidebars pull-right">
 
             </div>
-        </div>
-        <?php
-		include "../footer.php";
-        ?>
+
+  		</div>
+	</body>
+</html>
+            

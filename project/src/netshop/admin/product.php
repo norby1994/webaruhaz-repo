@@ -26,14 +26,7 @@
 
         <div id="wrapper">
 			 <header class="title-head">
-                <h1 class="cim pull-left"><a rel="external" href="index.php">NetShop</a></h1>
-                <div id="bejelentkezes" class="headerbar-form pull-right">
-                    <ul>
-                        <li>
-                            <a href="../logout.php">Kijelentkezés</a>
-                        </li>
-                    </ul>
-                </div>
+                <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
                 <br class="clearfix" />
 
                 <nav>
@@ -59,6 +52,7 @@
             <br class="clearfix" />
 
             <div id="side" class="sidebars pull-left">
+            	<h3>Menü</h3>
                 <nav>
                     <ul>
                         <li>
@@ -68,7 +62,7 @@
                 </nav>
             </div>
             
-            <div id="core" class="profile pull-left">
+            <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Új termék felvétele</h2>
 
   

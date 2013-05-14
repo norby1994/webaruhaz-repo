@@ -320,7 +320,7 @@ function data_update() {
 function product_list(){
 	require_once '../php/connection.php';
 	// Rendelések lekérdezése
-	$stid = oci_parse($connect, 'SELECT termek_nev, ar, darab_szam FROM termek');
+	$stid = oci_parse($connect, 'SELECT termek_id, termek_nev, ar FROM termek');
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -334,17 +334,17 @@ function product_list(){
 	}
 	print "<table>\n";
 	print "<tr>\n";
+	print "<th>ID</th>\n";
 	print "<th>Termék név</th>\n";
 	print "<th>Ár</th>\n";
-	print "<th>Darabszám</th>\n";
-	print "<th>&nbsp;</th>\n";
+	print "<th>Művelet</th>\n";
 	print "</tr>\n";
 	
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
 		print "<tr>\n";
+			print "<td>" . $row['TERMEK_ID'] . "</td>";
 			print "<td>" . $row['TERMEK_NEV'] . "</td>";
 			print "<td>" . $row['AR'] . "</td>";
-			print "<td>" . $row['DARAB_SZAM'] . "</td>";
 			print "<td>Szerkesztés</td>";
 		print "</tr>\n";
 	}
