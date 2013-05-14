@@ -6,7 +6,7 @@
 <div id="bejelentkezes" class="headerbar-form pull-right">
 	<ul>
 		<li>
-			<a href="login.php">Üdvözlünk <?php echo $_SESSION['nev']; ?></a>
+			Üdvözlünk <a href="profile.php"><?php echo $_SESSION['nev']; ?></a>!
 		</li>
 		<li>
 			<a href="logout.php">Kijelentkezés</a>
