@@ -161,8 +161,8 @@ function list_termekek() {
 function list_users() {
 	// Felhasználók lekérdezése
 	require_once "../php/connection.php";
-	$stid = oci_parse($connect, 'SELECT email, felhasznalo_nev, telefon, egyenleg, torzsvasarlo, reg_datum 
-				 FROM felhasznalo');
+	$stid = oci_parse($connect, "SELECT email, felhasznalo_nev, telefon, egyenleg, torzsvasarlo, TO_CHAR( reg_datum, 'YYYY-MM-DD' ) 
+				 FROM felhasznalo");
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -183,7 +183,7 @@ function list_users() {
 	print "<th>Telefonszám</th>\n";
 	print "<th>Egyenleg</th>\n";
 	print "<th>Törzsvásárló?</th>\n";
-	print "<th>Regisztráció dátuma</th>\n";
+	print "<th>Regisztrált</th>\n";
 	print "</tr>\n";
 
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
