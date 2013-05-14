@@ -48,17 +48,25 @@ function addtocart($id) {
 		
 		array_push($_SESSION['cart']['items'], $data);
 	}
-		
-	print_r($_SESSION['cart']);
-	//echo '<script type="text/javascript">window.location.href="../cartview.php";</script>';
+	echo '<script type="text/javascript">window.location.href="../cartview.php";</script>';
 }
 
 function removefromcart($id) {
-	unset ($_SESSION['cart']);
+	$i = 0;
+	foreach ($_SESSION['cart']['items'] as $key => $value) {
+		$i++;
+		if ($value['id'] == $id) {
+			unset($_SESSION['cart']['items'][$key]);
+			echo '<script type="text/javascript">window.location.href="../cartview.php";</script>';
+		} else {
+			
+		}
+		
+	}
 }
 
 function clearcart() {
-	
+	unset ($_SESSION['cart']);
 }
 
 ?>
