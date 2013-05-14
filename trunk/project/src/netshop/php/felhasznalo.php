@@ -85,8 +85,12 @@ function login_check() {
 			$_SESSION['egyenleg'] = $row[6];
 			$_SESSION['reg_datum'] = $row[7];
 			$_SESSION['torzsvasarlo'] = $row[8];
-
 		}
+		
+		require_once 'cart.php';
+		clearcart();
+		
+		$_SESSION['cart'][] = $items;
 
 		if ($_SESSION['email']) {
 			$tipus = "felhasznalo";
