@@ -41,7 +41,7 @@ function category_view($id) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	echo $stid;
+
 	$r = oci_execute($stid);
 	if (!$r) {
 		$e = oci_error($stid);
