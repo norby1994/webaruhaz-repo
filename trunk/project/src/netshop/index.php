@@ -28,21 +28,7 @@
 
                 <nav>
                     <ul>
-                        <li>
-                            <a rel="external" href="#">Póló</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Pulóver</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória</a>
-                        </li>
-                        <li>
-                            <a rel="external" href="#">Kategória</a>
-                        </li>
+                    	<?php require_once 'categories.php'; category_menu(); ?>
                     </ul>
                 </nav>
             </header>
