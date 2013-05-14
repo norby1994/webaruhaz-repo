@@ -73,6 +73,8 @@
 							} else if( 
                     		$_SESSION['tipus']=="felhasznalo"){ ?>
 		<div id="wrapper">
+		<?php require_once '/template/bejelentkezes-menu.php'; ?>
+		
 		<?php require_once "template/felhasznalo-menu.php" ?>
 		
         <div id="core" class="profile pull-left">
