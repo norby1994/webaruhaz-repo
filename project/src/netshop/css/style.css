@@ -428,7 +428,7 @@ input:required, textarea:required {
 	
 #core .top5 {
 	float: left;
-	background-color: #ccc;
+	background-color: rgba(200,200,200,0.6);
 	width: 152px;
 	height: 210px;
 	padding: 5px;
@@ -456,7 +456,7 @@ input:required, textarea:required {
 	font-weight: bold;
 	text-transform: uppercase;
 	margin: 15px 0 0 0;
-	color: #96ce00;
+	color: #333;
 }
 
 /*
