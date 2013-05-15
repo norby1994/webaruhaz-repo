@@ -218,4 +218,91 @@ function product_update_populate($id) {
 	return $res;
 }
 
+function product_update() {
+	if (isset($_POST['modosit'])) {
+		global $connect;
+
+		// posztolt termék adatok eltárolása
+		$termek_nev = iconv("UTF-8", "ISO-8859-1", $_POST['termek_nev']);
+		$rovid_leiras = iconv("UTF-8", "ISO-8859-1", $_POST['rovid_leiras']);
+		$hosszu_leiras = iconv("UTF-8", "ISO-8859-1", $_POST['hosszu_leiras']);
+		$ar = $_POST['ar'];
+		$darab_szam = $_POST['darab_szam'];
+		$kategoria_id = $_POST['kategoria'];
+		$cimke = $_POST['cimke'];
+		$termek_kep = 'img/p02.jpg';
+		$azon = $_POST['termek_id'];
+		
+		$mess = '';
+
+		// termék név frissítése
+		if ($termek_nev != null) {
+			$fsql = "UPDATE termek SET termek_nev='" . $termek_nev . "' WHERE termek_id = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'termek nev / ';
+			}
+		}
+
+		// rövid leírás frissítése
+		if ($rovid_leiras != null) {
+			$fsql = "UPDATE termek SET rovid_leiras='" . $rovid_leiras . "' WHERE etermek_id = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'rovid leiras / ';
+			}
+		}
+
+		// hosszú leírás frissítése
+		if ($hosszu_leiras != null) {
+				$fsql = "UPDATE termek SET hosszu_leiras= '" . $hosszu_leiras . "' WHERE termek_id = '" . $azon . "'";
+				$bQ = oci_parse($connect, $fsql);
+				if (oci_execute($bQ)) {
+					$mess = $mess. 'hosszu leiras / ';
+				}
+		}
+
+		// ár frissítése
+		if ($ar != null) {
+			$fsql = "UPDATE termek SET ar='" . $ar . "' WHERE termek_id = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'ar / ';
+			}
+		}
+		
+		// kategória frissítése
+		if ($kategoria_id != null) {
+			$fsql = "UPDATE termek SET telefon='" . $kategoria_id . "' WHERE termek_id = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'kategoria / ';
+			}
+		}
+		
+		// cimke frissítése
+		if ($cimke != null) {
+			$fsql = "UPDATE termek SET telefon='" . $cimke . "' WHERE termek_id = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'cimke / ';
+			}
+		}
+		
+		// termék kép frissítése
+		if ($termek_kep != null) {
+			$fsql = "UPDATE termek SET telefon='" . $termek_kep . "' WHERE termek_id = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				$mess = $mess. 'termek kep / ';
+			}
+		}
+		
+		oci_close($connect);
+		echo '<script type="text/javascript">
+			alert("A következő adatok frissítve lettek ' . $mess . ' .");
+			window.location.href="../profile.php";</script>';
+	}
+}
+
 ?>
