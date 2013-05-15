@@ -9,7 +9,7 @@ if (isset($_GET['add_id']) && logged_in()) {
 	addtocart($_GET['add_id']);
 } else if (isset($_GET['remove_id']) && logged_in()) {
 	removefromcart($_GET['remove_id']);
-} else if (isset($_GET['shopping'])) {
+} else if (isset($_GET['shopping']) == true && logged_in()) {
 	checkout();
 } else {
 	echo '<script type="text/javascript">
@@ -19,7 +19,22 @@ if (isset($_GET['add_id']) && logged_in()) {
 
 function checkout() {
 	global $connect;
-	$feltolt = "";
+	
+	$ossz_ar = 0;
+	
+	foreach ($_SESSION['cart']['items'] as $key => $value) {
+		$ossz_ar += $value['ar'];
+	}
+	
+	$fsql = 'INSERT INTO rendeles(email, idopont, ossz_ar)' . ' VALUES (:email, SYSDATE, :ossz_ar)';
+	$bQ = oci_parse($connect, $fsql);
+
+	oci_bind_by_name($bQ, ':email', $_SESSION['email']);
+	oci_bind_by_name($bQ, ':ossz_ar', $ossz_ar);
+	if (oci_execute($bQ)) {
+		clearcart();
+		echo '<script type="text/javascript">window.location.href="../index.php";</script>';
+	}
 }
 
 /*
