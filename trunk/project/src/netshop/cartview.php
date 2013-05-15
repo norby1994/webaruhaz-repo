@@ -51,6 +51,7 @@
 				<h2>Bevásárlókosár</h2>
 				<h3 class="pull-center top5-title">Bevásárlókosár</h3>
 				<?php
+				if (!empty($_SESSION['cart']['items'])) :
 				foreach ($_SESSION['cart']['items'] as $key => $value) :
 				?>
 				<div class="top5">
@@ -66,8 +67,13 @@
 				</div>
 				<?php 
 				endforeach;
+				echo '<a href="php/cart.php?shopping=true">Vásárlás</a>';
+				else :
+					?>
+					A bevásárló kosaracska üres.
+					<?php
+				endif;
 				?>
-				<a href="cart.php?shopping=true">Vásárlás</a>
 			<?php
 	include "footer.php";
  ?>
