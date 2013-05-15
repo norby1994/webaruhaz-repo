@@ -157,8 +157,8 @@
                 <?php
 				require_once '../php/products.php';
 				
-				if (isset($_POST['felvetel'])) {
-					product_insert();
+				if (isset($_POST['modosit'])) {
+					product_update();
 				}
                 ?>
             </div>

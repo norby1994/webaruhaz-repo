@@ -161,7 +161,7 @@ function list_termekek() {
 function list_users() {
 	// Felhasználók lekérdezése
 	require_once "../php/connection.php";
-	$stid = oci_parse($connect, "SELECT email, felhasznalo_nev, telefon, egyenleg, torzsvasarlo, TO_CHAR( reg_datum, 'YYYY-MM-DD' ) 
+	$stid = oci_parse($connect, "SELECT email, felhasznalo_nev, telefon, egyenleg, torzsvasarlo 
 				 FROM felhasznalo");
 	if (!$stid) {
 		$e = oci_error($connect);
@@ -183,7 +183,7 @@ function list_users() {
 	print "<th>Telefonszám</th>\n";
 	print "<th>Egyenleg</th>\n";
 	print "<th>Törzsvásárló?</th>\n";
-	print "<th>Regisztrált</th>\n";
+	print "<th>Művelet</th>\n";
 	print "</tr>\n";
 
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
@@ -191,6 +191,7 @@ function list_users() {
 		foreach ($row as $item) {
 			print "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
 		}
+		echo '<td><a href="users-balance.php?uid=' . $row['EMAIL'] . '">Egyenfeltöltés</a></td>';
 		print "</tr>\n";
 	}
 	print "</table>\n";
@@ -352,5 +353,52 @@ function data_update() {
 			alert("A következő adatok frissítve lettek ' . $mess . ' .");
 			window.location.href="../profile.php";</script>';
 	}
+}
+
+function update_user_balance() {
+		require "connection.php";
+
+		// adatok bekérése az egyenlegfeltöltő formról
+		$azon = $_POST['email'];
+		$balance = $_POST['egyenleg'];
+
+		// egyenleg frissítése
+		if ($balance != null) {
+			$fsql = "UPDATE felhasznalo SET egyenleg='" . $balance . "' WHERE email = '" . $azon . "'";
+			$bQ = oci_parse($connect, $fsql);
+			if (oci_execute($bQ)) {
+				echo "Sikeres feltöltés!";
+			}
+		}
+		
+		oci_close($connect);
+		echo '<script type="text/javascript">
+			alert("Egyenleg frissitve");
+			window.location.href="users.php";</script>';
+}
+
+function get_user_balance($id) {
+	// admin adatok frissítése
+	require_once "../php/connection.php";
+	$stid = oci_parse($connect, "SELECT felhasznalo_nev, egyenleg FROM felhasznalo WHERE email = '$id'");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés logikájának ellenőrzése
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés kilistázása
+
+	$res = oci_fetch_array($stid);
+
+	oci_free_statement($stid);
+	oci_close($connect);
+	return $res;
 }
 ?>

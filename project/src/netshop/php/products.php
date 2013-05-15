@@ -273,7 +273,7 @@ function product_update() {
 		
 		// kategória frissítése
 		if ($kategoria_id != null) {
-			$fsql = "UPDATE termek SET telefon='" . $kategoria_id . "' WHERE termek_id = '" . $azon . "'";
+			$fsql = "UPDATE termek SET kategoria_id='" . $kategoria_id . "' WHERE termek_id = '" . $azon . "'";
 			$bQ = oci_parse($connect, $fsql);
 			if (oci_execute($bQ)) {
 				$mess = $mess. 'kategoria / ';
@@ -282,7 +282,7 @@ function product_update() {
 		
 		// cimke frissítése
 		if ($cimke != null) {
-			$fsql = "UPDATE termek SET telefon='" . $cimke . "' WHERE termek_id = '" . $azon . "'";
+			$fsql = "UPDATE termek SET cimke='" . $cimke . "' WHERE termek_id = '" . $azon . "'";
 			$bQ = oci_parse($connect, $fsql);
 			if (oci_execute($bQ)) {
 				$mess = $mess. 'cimke / ';
@@ -291,7 +291,7 @@ function product_update() {
 		
 		// termék kép frissítése
 		if ($termek_kep != null) {
-			$fsql = "UPDATE termek SET telefon='" . $termek_kep . "' WHERE termek_id = '" . $azon . "'";
+			$fsql = "UPDATE termek SET termek_kep='" . $termek_kep . "' WHERE termek_id = '" . $azon . "'";
 			$bQ = oci_parse($connect, $fsql);
 			if (oci_execute($bQ)) {
 				$mess = $mess. 'termek kep / ';
@@ -301,7 +301,7 @@ function product_update() {
 		oci_close($connect);
 		echo '<script type="text/javascript">
 			alert("A következő adatok frissítve lettek ' . $mess . ' .");
-			window.location.href="../profile.php";</script>';
+			window.location.href="product-edit.php";</script>';
 	}
 }
 
