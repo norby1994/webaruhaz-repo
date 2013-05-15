@@ -55,7 +55,7 @@ function category_view($id) {
 			<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><img src="<?php echo $row['TERMEK_KEP']; ?>" alt="" /></a>
 		</div>
 		<div class="top5-name">
-			<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><?php echo $row['TERMEK_NEV']; ?></a>
+			<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><?php echo iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']); ?></a>
 		</div>
 		<div class="top5-price">
 			<?php echo $row['AR']; ?> Ft <a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/img/cart.png" alt="Kosárba tesz!" /></a>
