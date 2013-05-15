@@ -31,8 +31,26 @@
 
 <div id="core" class="admin-full pull-left">
 <h2 class="pull-center">Éves statisztika</h2>
+<form action="" method="post" >
+<input type="submit" name="bevetel-submit" value="Összbevétel lekér" />
+<input type="submit" name="regisztralok-submit" value="Regisztrálók lekér" />
+<input type="submit" name="lakohely-submit" value="Lakóhely szerint lekér" />
+<?php 
+require_once "../php/admin.php";
 
-Szerkesztés alatt...
+if (isset($_POST['bevetel-submit'])) {
+	bevetel_stat();
+}
+if (isset($_POST['regisztralok-submit'])) {
+	regisztracio_stat();
+}
+
+if (isset($_POST['lakohely-submit'])) {
+	lakohely_stat();
+}
+
+?>
+</form>
 </div>
 
 <?php

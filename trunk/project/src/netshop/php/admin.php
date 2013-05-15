@@ -401,4 +401,129 @@ function get_user_balance($id) {
 	oci_close($connect);
 	return $res;
 }
+
+/*
+ * Bevétel statisztikája év/hónap lebontásban
+*/
+function bevetel_stat() {
+	// adatbázis kapcsolódás
+	require_once '../php/connection.php';
+	// Rendelések lekérdezése
+	$stid = oci_parse($connect, "SELECT to_char(idopont, 'YYYY/MM'), SUM(ossz_ar) FROM rendeles
+								GROUP BY to_char(idopont, 'YYYY/MM')
+								ORDER BY to_char(idopont, 'YYYY/MM')");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	// Lekérdezés
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
+
+	}
+	print "<table id='tablazat'>\n";
+	print "<tr>\n";
+	print "<th>Dátum</th>\n";
+	print "<th>Összes bevétel(Ft)</th>\n";
+	print "</tr>\n";
+
+	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
+		print "<tr>\n";
+		foreach ($row as $item) {
+			print "    <td>" . ($item !== null ? htmlentities(iconv("ISO-8859-1", "UTF-8", $item), ENT_QUOTES) : "&nbsp;") . "</td>\n";
+		}
+		print "</tr>\n";
+	}
+	print "</table>\n";
+
+	oci_free_statement($stid);
+	oci_close($connect);
+
+}
+
+
+/*
+ * Regisztráció statisztikája év/hónap lebontásban
+*/
+function regisztracio_stat() {
+	// adatbázis kapcsolódás
+	require_once '../php/connection.php';
+	// Rendelések lekérdezése
+	$stid = oci_parse($connect, "SELECT to_char(reg_datum, 'YYYY/MM'), COUNT(email) FROM felhasznalo
+								GROUP BY to_char(reg_datum, 'YYYY/MM')
+								ORDER BY to_char(reg_datum, 'YYYY/MM')");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	// Lekérdezés
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
+
+	}
+	print "<table id='tablazat'>\n";
+	print "<tr>\n";
+	print "<th>Dátum</th>\n";
+	print "<th>Új regisztráló</th>\n";
+	print "</tr>\n";
+
+	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
+		print "<tr>\n";
+		foreach ($row as $item) {
+			print "    <td>" . ($item !== null ? htmlentities(iconv("ISO-8859-1", "UTF-8", $item), ENT_QUOTES) : "&nbsp;") . "</td>\n";
+		}
+		print "</tr>\n";
+	}
+	print "</table>\n";
+
+	oci_free_statement($stid);
+	oci_close($connect);
+
+}
+
+
+/*
+ * Lakóhely statisztikája regisztrált felhasználók szerint
+*/
+function lakohely_stat() {
+	// adatbázis kapcsolódás
+	require_once '../php/connection.php';
+	// Rendelések lekérdezése
+	$stid = oci_parse($connect, "SELECT varos, COUNT(varos) FROM lakcim
+								GROUP BY varos
+								ORDER BY COUNT(varos) desc");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	// Lekérdezés
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentites($e['message'], ENT_QUOTES), E_USER_ERROR);
+
+	}
+	print "<table id='tablazat'>\n";
+	print "<tr>\n";
+	print "<th>Lakóhely</th>\n";
+	print "<th>Felhasználók száma</th>\n";
+	print "</tr>\n";
+
+	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
+		print "<tr>\n";
+		foreach ($row as $item) {
+			print "    <td>" . ($item !== null ? htmlentities(iconv("ISO-8859-1", "UTF-8", $item), ENT_QUOTES) : "&nbsp;") . "</td>\n";
+		}
+		print "</tr>\n";
+	}
+	print "</table>\n";
+
+	oci_free_statement($stid);
+	oci_close($connect);
+
+}
 ?>
