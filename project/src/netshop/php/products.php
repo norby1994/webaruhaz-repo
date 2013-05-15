@@ -64,7 +64,7 @@ function product_list(){
 			print "<td>" . $row['TERMEK_ID'] . "</td>";
 			print "<td>" . iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']) . "</td>";
 			print "<td>" . $row['AR'] . "</td>";
-			print "<td>Szerkesztés</td>";
+			print '<td><a href="/netshop/admin/admin_edit_product.php?pid=' . $row['TERMEK_ID'] . '">Szerkesztés</a></td>';
 		print "</tr>\n";
 	}
 	print "</table>\n";
@@ -191,4 +191,31 @@ function product_insert(){
 		}
 	}
 }
+
+function product_update_populate($id) {
+	// admin adatok frissítése
+	global $connect;
+	$stid = oci_parse($connect, "SELECT * FROM termek
+						WHERE termek_id = '$id'");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés logikájának ellenőrzése
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés kilistázása
+
+	$res = oci_fetch_array($stid);
+
+	oci_free_statement($stid);
+	oci_close($connect);
+	return $res;
+}
+
 ?>

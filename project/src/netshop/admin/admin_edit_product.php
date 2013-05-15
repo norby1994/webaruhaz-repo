@@ -2,7 +2,7 @@
 <html lang="hu">
     <head>
         <meta charset="utf-8">
-        <title>NetShop - Admin | Termék módosítása</title>
+        <title>NetShop - Admin | Termék felvétele</title>
         <meta name="description" content="Internetes áruház" />
         <meta name="author" content="Kasziba Szintia, Verebélyi Bertalan, Verebélyi Csaba" />
         <link rel="shortcut icon" href="../img/favicon.png" />
@@ -18,17 +18,15 @@
 
     <body>
 
-        <div id="wrapper">
+        <?php
+		require_once "../php/admin.php";
+		session_check();
+        ?>
+        
 
-<header class="title-head">
+        <div id="wrapper">
+			 <header class="title-head">
                 <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
-                <div id="bejelentkezes" class="headerbar-form pull-right">
-                    <ul>
-                        <li>
-                            <a href="../logout.php">Kijelentkezés</a>
-                        </li>
-                    </ul>
-                </div>
                 <br class="clearfix" />
 
                 <nav>
@@ -54,10 +52,11 @@
             <br class="clearfix" />
 
             <div id="side" class="sidebars pull-left">
+            	<h3>Menü</h3>
                 <nav>
                     <ul>
                         <li>
-                            <a href="category-edit.php">Vissza a kategóriákhoz</a>
+                            <a href="product-edit.php">Vissza a termékekhez</a>
                         </li>
                     </ul>
                 </nav>
@@ -66,41 +65,109 @@
             <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Termék módosítása</h2>
 
-               
-                
+  
+                 
                 <br class="clearfix" />
-				<form action="" method="POST" class="modosit">
+				<form action="" method="POST" id="iform">
                 <div class="acc-row">
-                    <span class="acc-info"><label for="kategoria_ nev">Új kategória név:</label></span><span class="acc-datam">
-                        <input type="text" placeholder="<?php echo $_GET['edit']; ?>" name="kategoria_nev" />
+                    <span class="acc-info"><label for="kategoria">Kategória:</label></span>
+                    <span class="acc-datam">
+                        <?php 
+							require_once '../php/connection.php';
+                			$sql = "SELECT kategoria_id, kategoria_nev FROM kategoria";
+             				$result = oci_parse($connect, $sql);
+                			oci_execute ($result);
+							echo "<select name='kategoria' class='pull-right'>";
+							echo "<option value=''>-- Select --</option>";
+   							while ($eredmeny = oci_fetch_row($result)){
+									echo "<option value=". $eredmeny['0'] . ">" . $eredmeny['1'] . "</option>";						
+							}
+					       echo "</select>";
+						?>  
+                    </span>
+                </div>
+                <br class="clearfix" />
+                
+                <div class="acc-row">
+                    <span class="acc-info"><label for="cimke">Címke:</label></span>
+                    <span class="acc-datam">
+                        <?php 
+							require_once '../php/connection.php';
+                			$sql = "SELECT cimke_id, cimke_nev FROM cimke";
+             				$result = oci_parse($connect, $sql);
+                			oci_execute ($result);
+							echo "<select name='cimke' class='pull-right'>";
+							echo "<option value=''>-- Select --</option>";
+   							while ($eredmeny = oci_fetch_row($result)){
+									echo "<option value=". $eredmeny['0'] . ">" . $eredmeny['1'] . "</option>";							
+							}
+					       echo "</select>";
+						?>  
+                    </span>
+                </div>
+                <br class="clearfix" />
+				<?php
+					require_once '../php/products.php';
+					if (isset($_GET['pid'])) {
+						$data = product_update_populate($_GET['pid']);	
+					} else {
+						echo "<script>alert('Nincs kivalasztott termek!'); window.location = 'product-edit.php';</script>";
+					}
+					
+				?>
+                <div class="acc-row">
+                    <span class="acc-info"><label for="termek_nev">Termék név:</label></span><span class="acc-datam">
+                        <input type="text" name="termek_nev"  placeholder="<?php echo iconv("ISO-8859-1", "UTF-8", $data['TERMEK_NEV']); ?>" />
                     </span>
                 </div>
                 <br class="clearfix" />
 
-                    <input type="submit" value="Módosít" class="pull-center" name="modosit" />
+                <div class="acc-row">
+                    <span class="acc-info"><label for="rovid_leiras">Rövid leírása:</label></span><span class="acc-datam">
+                        <input type="text" name="rovid_leiras" placeholder="<?php echo iconv("ISO-8859-1", "UTF-8", $data['ROVID_LEIRAS']); ?>" />
+                    </span>
+                </div>
+
+                <br class="clearfix" />
+
+                <div class="acc-row">
+                    <span class="acc-info"><label for="hosszu_leiras">Hosszú leírása:</label></span><span class="acc-datam">
+                        <input type="text" name="hosszu_leiras" placeholder="<?php echo iconv("ISO-8859-1", "UTF-8", $data['HOSSZU_LEIRAS']); ?>" />
+                    </span>
+                </div>
+                <br class="clearfix" />
+
+                <div class="acc-row">
+                    <span class="acc-info"><label for="ar">Ár:</label></span><span class="acc-datam">
+                        <input type="text" name="ar" placeholder="<?php echo $data['AR']; ?>" />
+                    </span>
+                </div>
+                <br class="clearfix" />
+
+                <div class="acc-row">
+                    <span class="acc-info"><label for="darab_szam">Darab szám:</label></span><span class="acc-datam">
+                        <input type="text" name="darab_szam"  placeholder="<?php echo $data['DARAB_SZAM']; ?>"/>
+                    </span>
+                </div>
+                <br class="clearfix" />
+                
+                
+
+                    <input type="submit" value="Felvétel" class="pull-center" name="felvetel" />
                 </form>
 
                 <?php
+				require_once '../php/products.php';
 				
-					if (isset($_POST['modosit'])) {
-					
-						require "../php/connection.php";
-						$nev = $_POST['kategoria_nev'];
-						$fsql = "UPDATE kategoria SET KATEGORIA_NEV='" . $nev . "' WHERE KATEGORIA_NEV = '" . $_GET['edit'] . "'";
-						$bQ = oci_parse($connect, $fsql);
-						if (oci_execute($bQ)) {
-							header("Location:category-edit.php"); 
-						}
-					}
-				
+				if (isset($_POST['felvetel'])) {
+					product_insert();
+				}
                 ?>
             </div>
 
             <div id="side2" class="sidebars pull-right">
 
             </div>
-
-  		</div>
-	</body>
-</html>
-            
+            <?php
+	include "../footer.php";
+            ?>
