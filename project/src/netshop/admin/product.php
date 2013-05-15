@@ -70,18 +70,17 @@
                 <br class="clearfix" />
 				<form action="" method="POST" class="felvetel">
                 <div class="acc-row">
-                    <span class="acc-info"><label for="kategoria">Kategória:</label></span><span class="acc-datam">
+                    <span class="acc-info"><label for="kategoria">Kategória:</label></span>
+                    <span class="acc-datam">
                         <?php 
 							require_once '../php/connection.php';
-                			$sql = "SELECT kategoria_nev FROM kategoria";
+                			$sql = "SELECT kategoria_id, kategoria_nev FROM kategoria";
              				$result = oci_parse($connect, $sql);
                 			oci_execute ($result);
 							echo "<select name='kategoria'>";
 							echo "<option value=''>-- Select --</option>";
    							while ($eredmeny = oci_fetch_row($result)){
-								foreach ($eredmeny as $item) {
-									echo "<option value='=$item;'>$item</option>";						
-						 		}
+									echo "<option value=". $eredmeny['0'] . ">" . $eredmeny['1'] . "</option>";						
 							}
 					       echo "</select>";
 						?>  
@@ -90,18 +89,17 @@
                 <br class="clearfix" />
                 
                 <div class="acc-row">
-                    <span class="acc-info"><label for="cimke">Címke:</label></span><span class="acc-datam">
+                    <span class="acc-info"><label for="cimke">Címke:</label></span>
+                    <span class="acc-datam">
                         <?php 
 							require_once '../php/connection.php';
-                			$sql = "SELECT cimke_nev FROM cimke";
+                			$sql = "SELECT cimke_id, cimke_nev FROM cimke";
              				$result = oci_parse($connect, $sql);
                 			oci_execute ($result);
 							echo "<select name='cimke'>";
 							echo "<option value=''>-- Select --</option>";
    							while ($eredmeny = oci_fetch_row($result)){
-								foreach ($eredmeny as $item) {
-									echo "<option value='=$item;'>$item</option>";						
-						 		}
+									echo "<option value=". $eredmeny['0'] . ">" . $eredmeny['1'] . "</option>";							
 							}
 					       echo "</select>";
 						?>  
@@ -111,7 +109,7 @@
 
                 <div class="acc-row">
                     <span class="acc-info"><label for="termek_nev">Termék név:</label></span><span class="acc-datam">
-                        <input type="text" name="termek_nev" />
+                        <input type="text" name="termek_nev" required="required" />
                     </span>
                 </div>
                 <br class="clearfix" />
@@ -151,9 +149,10 @@
                 </form>
 
                 <?php
+				require_once '../php/products.php';
 				
-				if (isset($_POST['modosit'])) {
-					data_update();
+				if (isset($_POST['felvetel'])) {
+					product_insert();
 				}
                 ?>
             </div>
@@ -165,5 +164,3 @@
             <?php
 	include "../footer.php";
             ?>
-</body>
-</html>

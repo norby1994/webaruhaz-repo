@@ -157,4 +157,38 @@ function search($term){
                
 }
 
+/*
+ * Termék feltöltésének megvalósítása
+ */
+function product_insert(){
+	if (isset($_POST['felvetel'])) {
+		global $connect;
+
+		// termék tábla
+		$termek_nev = iconv("UTF-8", "ISO-8859-1", $_POST['termek_nev']);
+		$rovid_leiras = iconv("UTF-8", "ISO-8859-1", $_POST['rovid_leiras']);
+		$hosszu_leiras = iconv("UTF-8", "ISO-8859-1", $_POST['hosszu_leiras']);
+		$ar = $_POST['ar'];
+		$darab_szam = $_POST['darab_szam'];
+		$kategoria_id = $_POST['kategoria'];
+		$cimke = $_POST['cimke'];
+		$termek_kep = 'img/p02.jpg';
+
+		// termék beszúrása
+		$fsql = 'INSERT INTO termek(kategoria_id, termek_nev, rovid_leiras, hosszu_leiras, ar, darab_szam, cimke_id, termek_kep)' . ' VALUES (:kategoria_id, :termek_nev, :rovid_leiras, :hosszu_leiras, :ar, :darab_szam, :cimke_id, :termek_kep)';
+		$bQ = oci_parse($connect, $fsql);
+
+		oci_bind_by_name($bQ, ':kategoria_id', $kategoria_id);
+		oci_bind_by_name($bQ, ':termek_nev', $termek_nev);
+		oci_bind_by_name($bQ, ':rovid_leiras', $rovid_leiras);
+		oci_bind_by_name($bQ, ':hosszu_leiras', $hosszu_leiras);
+		oci_bind_by_name($bQ, ':ar', $ar);
+		oci_bind_by_name($bQ, ':darab_szam', $darab_szam);
+		oci_bind_by_name($bQ, ':cimke_id', $cimke);
+		oci_bind_by_name($bQ, ':termek_kep', $termek_kep);
+		if (oci_execute($bQ)) {
+			echo 'Sikeres feltöltés';
+		}
+	}
+}
 ?>
