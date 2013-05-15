@@ -5,7 +5,7 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="/netshop/admin/product.php">Termék feltöltése</a>
+                            <a href="admin/product.php">Termék feltöltése</a>
                         </li>
                         <li>
                             <a href="/netshop/admin/product-edit.php">Termék módosítása</a>
