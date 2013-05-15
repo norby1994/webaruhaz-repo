@@ -150,10 +150,8 @@
                     </span>
                 </div>
                 <br class="clearfix" />
-                
-                
-
-                    <input type="submit" value="Felvétel" class="pull-center" name="felvetel" />
+                	<input type="hidden" name="termek_id" value="<?php echo $data['TERMEK_ID']; ?>" />
+                    <input type="submit" value="Felvétel" class="pull-center" name="modosit" />
                 </form>
 
                 <?php
