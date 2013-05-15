@@ -200,6 +200,46 @@ function list_users() {
 
 }
 
+
+/*
+ * Legutóbbi vásárlásokat kilistázását megvalósító metódus
+*/
+
+function list_last_shopping() {
+	// Legutóbbi vásárlások lekérdezése
+	require_once "php/connection.php";
+	$stid = oci_parse($connect, "SELECT * FROM rendeles WHERE rownum <= 6 ORDER BY idopont DESC");
+	if (!$stid) {
+		$e = oci_error($connect);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	// lekérdezés logikájának ellenőrzése
+	$r = oci_execute($stid);
+	if (!$r) {
+		$e = oci_error($stid);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	
+
+	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) :
+	?>
+	<div >
+		<?php 
+		echo $row['IDOPONT']; 
+		echo $row['EMAIL']; 
+		echo $row['OSSZ_AR']; ?>
+					
+	</div>
+	<?php 
+	endwhile;
+	oci_free_statement($stid);
+	oci_close($connect);
+                
+
+}
+
 /*
  * Admin adatok lekérdezése a frissítési űrlap feltöltéséhez
  */

@@ -66,6 +66,10 @@
 
             <div id="side2" class="sidebars pull-right">
                 <h3>Legutóbbi vásárlások</h3>
+                <?php
+		require_once "php/admin.php";
+			list_last_shopping();
+       			 ?>
             </div>
                     <?php 	// Ha felhasználó típusú a bejelentkezett felhasználó,
 							// akkor megjelenítjük a hozzá tartozó profilt
