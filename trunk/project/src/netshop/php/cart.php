@@ -33,6 +33,7 @@ function checkout() {
 	oci_bind_by_name($bQ, ':ossz_ar', $ossz_ar);
 	if (oci_execute($bQ)) {
 		clearcart();
+		$_SESSION['cart']['items'] = array();
 		echo '<script type="text/javascript">window.location.href="../index.php";</script>';
 	}
 }
