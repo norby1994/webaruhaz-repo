@@ -131,19 +131,22 @@ function search($term){
 	
 	while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)): ?>
 		<div class="search-box">
-			 <a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/<?php echo $row['TERMEK_KEP']; ?>" alt="<?php echo iconv('ISO-8859-1', 'UTF-8', $row['TERMEK_NEV']); ?>"  /></a><br />
-			 <a href="/netshop/category_view.php?id=<?php echo $row['KATEGORIA_ID']; ?>"><?php echo $row['KATEGORIA_NEV']; ?></a>
+			 <div class="search-title">
+				 <a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/<?php echo $row['TERMEK_KEP']; ?>" class="pp-img" alt="<?php echo iconv('ISO-8859-1', 'UTF-8', $row['TERMEK_NEV']); ?>"  /></a><br />
+			 	<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><?php echo iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']); ?></a>
+			 </div>
 			 <div class="search-info">
-			 	<div class="search-title">
-			 		<a href="/netshop/product-profil.php?pid=<?php echo $row['TERMEK_ID']; ?>"><?php echo iconv("ISO-8859-1", "UTF-8", $row['TERMEK_NEV']); ?></a>
+			 	<div class="search-category">
+			 		<a href="/netshop/category_view.php?id=<?php echo $row['KATEGORIA_ID']; ?>"><?php echo $row['KATEGORIA_NEV']; ?></a>
 			 	</div>
 			 	<div class="search-short">
 			 		<p><?php echo iconv("ISO-8859-1", "UTF-8", $row['ROVID_LEIRAS']); ?></p>
 			 	</div>
 			 	<div class="search-price">
-			 		<a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/img/cart.png" alt="Kosárba tesz!" /></a> <?php echo $row['AR']; ?> Ft
+			 		<?php echo $row['AR']; ?> Ft <a href="php/cart.php?add_id=<?php echo $row['TERMEK_ID']; ?>"><img src="/netshop/img/cart.png" alt="Kosárba tesz!" /></a>
 			 	</div>
 			 </div>
+			 <br class="clearfix" />
 		</div>
 	
 	<?php 
