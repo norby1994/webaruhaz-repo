@@ -21,16 +21,19 @@ function checkout() {
 	global $connect;
 	
 	$ossz_ar = 0;
+	$idopont = date('Y') . '/' . date('m') . '/' . date('d');
 	
 	foreach ($_SESSION['cart']['items'] as $key => $value) {
 		$ossz_ar += $value['ar'];
 	}
 	
-	$fsql = 'INSERT INTO rendeles(email, idopont, ossz_ar)' . ' VALUES (:email, SYSDATE, :ossz_ar)';
+	$fsql = 'INSERT INTO rendeles(email, idopont, ossz_ar)' . ' VALUES (:email, to_date(:idopont, \'yyyy/mm/dd\'), :ossz_ar)';
 	$bQ = oci_parse($connect, $fsql);
 
 	oci_bind_by_name($bQ, ':email', $_SESSION['email']);
 	oci_bind_by_name($bQ, ':ossz_ar', $ossz_ar);
+	oci_bind_by_name($bQ, ':idopont', $idopont);
+	echo "$fsql";
 	if (oci_execute($bQ)) {
 		clearcart();
 		$_SESSION['cart']['items'] = array();
