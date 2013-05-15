@@ -68,7 +68,7 @@
   
                  
                 <br class="clearfix" />
-				<form action="" method="POST" class="felvetel">
+				<form action="" method="POST" id="iform">
                 <div class="acc-row">
                     <span class="acc-info"><label for="kategoria">Kategória:</label></span>
                     <span class="acc-datam">
@@ -77,7 +77,7 @@
                 			$sql = "SELECT kategoria_id, kategoria_nev FROM kategoria";
              				$result = oci_parse($connect, $sql);
                 			oci_execute ($result);
-							echo "<select name='kategoria'>";
+							echo "<select name='kategoria' class='pull-right'>";
 							echo "<option value=''>-- Select --</option>";
    							while ($eredmeny = oci_fetch_row($result)){
 									echo "<option value=". $eredmeny['0'] . ">" . $eredmeny['1'] . "</option>";						
@@ -96,7 +96,7 @@
                 			$sql = "SELECT cimke_id, cimke_nev FROM cimke";
              				$result = oci_parse($connect, $sql);
                 			oci_execute ($result);
-							echo "<select name='cimke'>";
+							echo "<select name='cimke' class='pull-right'>";
 							echo "<option value=''>-- Select --</option>";
    							while ($eredmeny = oci_fetch_row($result)){
 									echo "<option value=". $eredmeny['0'] . ">" . $eredmeny['1'] . "</option>";							
@@ -160,7 +160,7 @@
             <div id="side2" class="sidebars pull-right">
 
             </div>
-</div>
+
             <?php
 	include "../footer.php";
             ?>
