@@ -1,0 +1,3 @@
+INSERT INTO rendeles (rendeles_id,email, idopont, ossz_ar) VALUES('1','peep@citromail.hu',TO_DATE('2013-04-06','YYYY-MM-DD'), '2000');
+INSERT INTO rendeles (rendeles_id,email, idopont, ossz_ar) VALUES('2','kornelia88@nincsmail.hu',TO_DATE('2011-12-20','YYYY-MM-DD'), '3500');
+INSERT INTO rendeles (rendeles_id,email, idopont, ossz_ar) VALUES('3','Silent@nincsmail.hu',TO_DATE('2013-02-25','YYYY-MM-DD'), '3000');

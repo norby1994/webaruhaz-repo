@@ -1,0 +1,3 @@
+INSERT INTO cimke (cimke_id,cimke_nev) VALUES('1','terriville');
+INSERT INTO cimke (cimke_id,cimke_nev) VALUES('2','envy');
+INSERT INTO cimke (cimke_id,cimke_nev) VALUES('3','blackandwhite');

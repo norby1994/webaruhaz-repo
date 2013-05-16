@@ -1,0 +1,5 @@
+INSERT INTO kategoria (kategoria_id,kategoria_nev, attributum_id) VALUES('2','polok','2');
+INSERT INTO kategoria (kategoria_id,kategoria_nev, attributum_id) VALUES('3','polok','3');
+INSERT INTO kategoria (kategoria_id,kategoria_nev, attributum_id) VALUES('5','pulcsik','2');
+INSERT INTO kategoria (kategoria_id,kategoria_nev, attributum_id) VALUES('4','pulcsik','1');
+INSERT INTO kategoria (kategoria_id,kategoria_nev, attributum_id) VALUES('1','pulcsik','3');

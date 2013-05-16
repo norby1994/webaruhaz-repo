@@ -1,0 +1,3 @@
+INSERT INTO attributum (attributum_id,attributum_nev,attributum_tipus) VALUES('1','nõi','pamut');
+INSERT INTO attributum (attributum_id,attributum_nev,attributum_tipus) VALUES('2','férfi','pamut');
+INSERT INTO attributum (attributum_id,attributum_nev,attributum_tipus) VALUES('3','gyerek','pamut');

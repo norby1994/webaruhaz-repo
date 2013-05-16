@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ERROR);
 session_start();
 
 require_once 'connection.php';
@@ -13,8 +13,8 @@ if (isset($_GET['add_id']) && logged_in()) {
 	checkout();
 } else {
 	echo '<script type="text/javascript">
-			alert("Kérlek jelentkezz be.");
-			window.location.href="../login.php";</script>';
+			alert("Hibás email/jelszó!");
+			window.location.href="login.php";</script>';
 }
 
 function checkout() {
