@@ -1,0 +1,4 @@
+INSERT INTO termek (termek_id, kategoria_id, termek_nev, rovid_leiras, hosszu_leiras, ar, darab_szam, cimke_id) VALUES('1','1', 'fekete pulcsi', 'Pamut fekete pulcsi. Kiváló minõségû.', 'X, XL méretben. Géppel mosható. Kapucnis, kerek nyakú.', '2000', '3', '3');
+INSERT INTO termek (termek_id, kategoria_id, termek_nev, rovid_leiras, hosszu_leiras, ar, darab_szam, cimke_id) VALUES('2','2', 'fehér polo', 'Pamut fehér póló.', 'S,M,L méretben. Géppel mosható. Testhezálló szabású.', '1500', '6', '3' );
+INSERT INTO termek (termek_id, kategoria_id, termek_nev, rovid_leiras, hosszu_leiras, ar, darab_szam, cimke_id) VALUES('3','3', 'fekete polo', 'Pamut fekete póló. Teshezálló.', 'M, L, XXL méretben. Csak kézzel mosható.', '1500', '7', '3');
+INSERT INTO termek (termek_id, kategoria_id, termek_nev, rovid_leiras, hosszu_leiras, ar, darab_szam, cimke_id) VALUES('4','3', 'fekete polo', 'Pamut fekete póló.', 'XXXL, 5XL méretben. Csak kézzel mosható.', '1000', '2', '3');

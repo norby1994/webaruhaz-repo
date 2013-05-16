@@ -18,7 +18,7 @@
 
     <body>
     <?php
-
+    error_reporting(E_ERROR);
 		if (isset($_GET['Error'])) echo $_GET['Error']; 
 	?>
         <div id="wrapper">
@@ -32,6 +32,7 @@
         </div>
         
         <?php
+        error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 			require_once "php/felhasznalo.php";
 			if (isset($_POST['login-submit'])) {
 				login_check();

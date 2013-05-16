@@ -1,0 +1,3 @@
+INSERT INTO szallitasi_cim (rendeles_id,ir_szam, varos, utca, hazszam) VALUES('1','1152','Budapest','Macko','19');
+INSERT INTO szallitasi_cim (rendeles_id,ir_szam, varos, utca, hazszam) VALUES('2','1152','Budapest','Szechenyi','10');
+INSERT INTO szallitasi_cim (rendeles_id,ir_szam, varos, utca, hazszam) VALUES('3','4200','Debrecen','Virag','29');

@@ -1,0 +1,32 @@
+/* Bevétel statisztikája év/hónap lebontásban*/
+
+SELECT TO_CHAR(IDOPONT, 'YYYY/MM') "Dátum",
+SUM(OSSZ_AR) "Bevétel (Ft)"
+FROM RENDELES
+GROUP BY TO_CHAR(IDOPONT, 'YYYY/MM')
+ORDER BY TO_CHAR(IDOPONT, 'YYYY/MM')
+
+
+
+/* Regisztrációk statisztikája év/hónap lebontásban*/
+
+SELECT TO_CHAR(REG_DATUM, 'YYYY/MM') "Dátum",
+COUNT(EMAIL) "új regisztrálók száma"
+FROM FELHASZNALO
+GROUP BY TO_CHAR(REG_DATUM, 'YYYY/MM')
+ORDER BY TO_CHAR(REG_DATUM, 'YYYY/MM')
+
+
+/* Lakóhely statisztikája regisztrált felhasználók szerint lebontásban*/
+
+SELECT VAROS "Lakóhely",
+COUNT(VAROS) "Felhasznalók száma"
+FROM LAKCIM
+GROUP BY VAROS
+ORDER BY VAROS
+
+
+/* Vásárolt termékek lekérdezése*/
+
+select termek_nev, ar from termek where termek_id = (select termek_id from rendeles_reszletei where rendeles_id = (Select rendeles_id from rendeles
+where email ='peep@citromail.hu'))

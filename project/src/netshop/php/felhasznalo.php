@@ -67,6 +67,7 @@ function regtorles() {
  * Session lekezelését elvégző metódus
  */
 function login_check() {
+	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 	session_start();
 	require_once "php/connection.php";
 
@@ -98,7 +99,7 @@ function login_check() {
 		if ($_SESSION['email']) {
 			$tipus = "felhasznalo";
 			$_SESSION['tipus'] = $tipus;
-			header("Location:index.php");
+			header("Location:profile.php");
 		} else {
 			echo '<script type="text/javascript">
 			alert("Hibás email/jelszó ");

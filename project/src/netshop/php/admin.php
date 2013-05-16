@@ -4,7 +4,7 @@
  * Session lekezelését elvégző metódus
  */
 function login_check() { 
-	// error_reporting(E_ERROR);
+		error_reporting(E_ERROR);
 	session_start();
 	require_once "../php/connection.php";
 

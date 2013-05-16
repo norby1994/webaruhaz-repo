@@ -30,8 +30,9 @@
 	// adatbázis kapcsolódás
 	require_once '/php/connection.php';
 	// Rendelések lekérdezése
+	$email = $_SESSION['email'];
 	$stid = oci_parse($connect, "select termek_nev, ar from termek where termek_id = (select termek_id from rendeles_reszletei where rendeles_id = (Select rendeles_id from rendeles
-where email ='peep@citromail.hu'))");
+	where EMAIL =  '" . addslashes($email) . "'))");
 	if (!$stid) {
 		$e = oci_error($connect);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);

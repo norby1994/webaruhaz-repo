@@ -25,7 +25,31 @@
         
 
         <div id="wrapper">
-		<?php require_once "../template/admin-menu.php" ?>
+			 <header class="title-head">
+                <h1 class="cim pull-left"><a rel="external" href="/netshop/index.php"><img src="/netshop/img/header.png" alt="Netshop" /></a></h1>
+                <br class="clearfix" />
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="product.php">Termék feltöltése</a>
+                        </li>
+                        <li>
+                            <a href="product-edit.php">Termék módosítása</a>
+                        </li>
+                        <li>
+                            <a href="category.php">Kategória felvétele</a>
+                        </li>
+                        <li>
+                            <a href="category-edit.php">Kategória módosítása</a>
+                        </li>
+                        <li>
+                            <a href="catalog.php">Katalógus megtekintése</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <br class="clearfix" />
             
             <div id="core" class="admin-full pull-left">
                 <h2 class="pull-center">Kategória módosítás</h2>
